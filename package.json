@@ -1,0 +1,93 @@
+{
+	"name": "opniz",
+	"version": "0.0.1",
+	"description": "opniz sdk for nodejs",
+	"keywords": [
+		"opniz",
+		"obniz",
+		"m5stack",
+		"m5atom",
+		"esp32"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/miso-develop/opniz",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/miso-develop/opniz-sdk-nodejs.git"
+	},
+	"bugs": "https://github.com/miso-develop/opniz-sdk-nodejs/issues",
+	"author": "Miso Tanaka <miso.develop@gmail.com>",
+	"main": "dist/index.js",
+	"engines": {
+		"node": ">=10.x"
+	},
+	"files": [
+		"dist"
+	],
+	"private": true,
+	"scripts": {
+		"prepare": "npm run build && husky install",
+		"nodemon": "nodemon --watch dist dist/index.js",
+		"m": "npm run nodemon",
+		"node": "node dist",
+		"n": "npm run node",
+		"prestart": "npm run build",
+		"start": "npm run node",
+		"clean": "npx rimraf dist",
+		"c": "npm run clean",
+		"prebuild": "npm run clean",
+		"build": "tsc",
+		"b": "npm run build",
+		"prewatch": "npm run clean",
+		"watch": "tsc -w",
+		"w": "npm run watch",
+		"lint": "npx eslint {src,tests,examples}/**/*.{ts,js}",
+		"l": "npm run lint",
+		"lint:fix": "npx eslint --fix {src,tests,examples}/**/*.{ts,js}",
+		"l:f": "npm run lint:fix",
+		"_test": "echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && echo . && npx jest",
+		"_t": "npm _test",
+		"test": "npx jest",
+		"t": "npm test",
+		"test:coverage": "npx jest --coverage",
+		"t:c": "npm run test:coverage",
+		"test:watch": "npx jest --watch",
+		"t:w": "npm run test:watch",
+		"doc": "npx typedoc src --out docs --readme none --exclude \"./src/**/example.ts\"",
+		"d": "npm run doc",
+		"open:coverage": "npx opener chrome ./coverage/lcov-report/index.html",
+		"o:c": "npm run open:coverage",
+		"open:doc": "npx opener chrome ./docs/index.html",
+		"o:d": "npm run open:doc",
+		"update": "npm run lint && npm run build && npm run test:coverage && npm run doc",
+		"u": "npm run update",
+		"": ""
+	},
+	"lint-staged": {
+		"{src,tests,examples}/**/*.{ts,js}": [
+			"eslint --fix",
+			"git add"
+		]
+	},
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"dayjs": "^1.10.3",
+		"ip": "^1.1.5"
+	},
+	"devDependencies": {
+		"@types/eslint": "^4.16.6",
+		"@types/jest": "^26.0.20",
+		"@types/node": "^14.14.20",
+		"@typescript-eslint/eslint-plugin": "^1.10.2",
+		"@typescript-eslint/parser": "^1.10.2",
+		"eslint": "^5.16.0",
+		"eslint-plugin-jest": "^24.1.3",
+		"husky": "^5.1.3",
+		"jest": "^26.6.3",
+		"lint-staged": "^10.5.4",
+		"opener": "^1.5.2",
+		"ts-jest": "^26.5.0",
+		"typedoc": "^0.20.31",
+		"typescript": "^4.2.3"
+	}
+}

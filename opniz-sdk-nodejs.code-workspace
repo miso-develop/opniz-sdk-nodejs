@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"colorcode",
+			"drawpix",
+			"eqeqeq",
+			"lcov",
+			"ledc",
+			"logc",
+			"notmatch",
+			"obniz",
+			"onbutton",
+			"ondata",
+			"onnotmatch",
+			"onmethod",
+			"opniz",
+			"pico",
+			"raspi"
+		]
+	}
+}

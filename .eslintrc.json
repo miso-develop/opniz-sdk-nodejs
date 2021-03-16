@@ -1,0 +1,67 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"jest"
+	],
+	"parser": "@typescript-eslint/parser",
+	"env": {
+		"node": true,
+		"es6": true,
+		"jest/globals": true
+	},
+	"rules": {
+		"semi": ["error", "never", {"beforeStatementContinuationChars": "never"}],
+		"semi-spacing": ["error", {"after": true, "before": false}],
+		"semi-style": ["error", "first"],
+		"no-extra-semi": "error",
+		"no-unexpected-multiline": "error",
+		"no-unreachable": "error",
+		
+		"indent": "off",
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "double", { "allowTemplateLiterals": true }],
+		"comma-spacing": ["error", { "after": true }],
+		"comma-style": ["error", "last"],
+		"comma-dangle": ["error", "always-multiline"],
+		"keyword-spacing": ["error", { "before": true, "after": true }],
+		"key-spacing": ["error", { "afterColon": true }],
+		"eqeqeq": "error",
+		"space-infix-ops": "error",
+		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+		"no-cond-assign": "error",
+		"block-spacing": "error",
+		"space-in-parens": "error",
+		"space-before-blocks": "error",
+		"camelcase": "error",
+		"eol-last": "error",
+		"new-cap": "error",
+		"new-parens": "error",
+		"space-unary-ops": "error",
+		"spaced-comment": "error",
+		"template-curly-spacing": "error",
+		"no-array-constructor": "error",
+		"no-multiple-empty-lines": ["error", { "max": 3, "maxEOF": 2 }],
+		"no-floating-decimal": "error",
+		"no-multi-spaces": "error",
+		"no-unneeded-ternary": "error",
+		"no-whitespace-before-property": "error",
+		"rest-spread-spacing": "error",
+		"no-console": "off",
+		"no-redeclare": "off",
+		"no-constant-condition": "off",
+		
+		"@typescript-eslint/indent": ["error", "tab"],
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-namespace": "off",
+		"@typescript-eslint/no-use-before-define": "off",
+		"@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "explicit", "overrides": { "constructors": "off", "accessors": "off" } }],
+		"@typescript-eslint/member-delimiter-style": ["error", { "multiline": { "delimiter": "none" } }],
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/no-unused-vars": "off",
+		"@typescript-eslint/no-var-requires": "off"
+	}
+}
