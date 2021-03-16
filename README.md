@@ -2,13 +2,15 @@
 
 `❗ このプロジェクトは現在アルファ版です。`
 
-opnizとはM5StackといったESP32デバイスをNode.jsからobnizライクに制御するための、Node.js SDKおよびArduinoライブラリです。  
+opnizとはM5StackといったESP32デバイスをNode.jsからobnizライクに制御するための、**Node.js SDK**および**Arduinoライブラリ**です。  
 ざっくり言うとサーバーを介さない、オープンソースな、obnizっぽい実装ができるなにかです。  
 
-仕組みとしてはESP32デバイスおよびNode.js SDKにてTCPサーバー/クライアントを実行し、相互にTCP経由でJSONメッセージをやりとりしています。  
+仕組みとしてはESP32デバイスおよびNode.js SDKにて**TCPサーバー/クライアントを実行**し、相互にTCP経由で**JSONメッセージ**をやりとりしています。  
 
-現在Node.js SDK、ArduinoライブラリともにESP32-PICOおよびM5ATOM Liteクラスを実装しています。  
-M5ATOM LiteクラスでM5Stack、M5StickC、M5ATOM Matrixでの動作も確認しています。  
+![overview](./extras/images/overview.png)
+
+現在Node.js SDK、Arduinoライブラリともに**ESP32-PICO**および**M5ATOM Lite**クラスを実装しています。  
+M5ATOM Liteクラスで**M5Stack、M5StickC、M5ATOM Matrixでの動作も確認しています。**  
 
 新たなデバイスクラスを簡単に拡張できる設計となっています。  
 おってリファレンスも作成予定ですが、クラス拡張ハンズオンも作成予定です。  
