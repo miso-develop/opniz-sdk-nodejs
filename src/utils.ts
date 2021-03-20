@@ -23,8 +23,9 @@ export const generateRandomColorcode = (): string => {
 }
 
 export const generateRandomColorcodeClosure = () => {
-	let color, preColor = color = "#ffffff"
-	return () => {
+    let color;
+    let preColor = color = "#ffffff";
+    return () => {
 		while (color === preColor) color = generateRandomColorcode()
 		preColor = color
 		return color
