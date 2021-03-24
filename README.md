@@ -3,22 +3,24 @@
 `❗ このプロジェクトは現在アルファ版です。`
 
 opnizとはM5StackといったESP32デバイスをNode.jsからobnizライクに制御するための、**Node.js SDK**および**Arduinoライブラリ**です。  
-ざっくり言うとサーバーを介さない、オープンソースな、obnizっぽい実装ができるなにかです。  
+ざっくりいうとサーバーを介さない、オープンソースな、obnizっぽい実装ができるなにかです。  
 
-仕組みとしてはESP32デバイスおよびNode.js SDKにて**TCPサーバー/クライアントを実行**し、相互にTCP経由で**JSONメッセージ**をやりとりしています。  
+しくみとしてはESP32デバイスおよびNode.js SDKにて**TCPサーバー/クライアントを実行**し、相互にTCP経由で**JSONメッセージ**をやりとりしています。  
 
 ![overview](./extras/images/overview.png)
 
-現在Node.js SDK、Arduinoライブラリともに**ESP32-PICO**および**M5ATOM Lite**クラスを実装しています。  
-M5ATOM Liteクラスで**M5Stack、M5StickC、M5ATOM Matrixでの動作も確認しています。**  
+現在Node.js SDK、Arduinoライブラリともに**ESP32**および**M5ATOM**クラスを実装しています。  
+M5ATOMクラスで**M5Stack、M5StickC、M5ATOM Lite、M5ATOM Matrixでの動作を確認しています。**  
 
 新たなデバイスクラスを簡単に拡張できる設計となっています。  
 おってリファレンスも作成予定ですが、クラス拡張ハンズオンも作成予定です。  
 
+
+
 ## Node.js SDK
 
 本リポジトリはNode.js SDKのリポジトリとなります。  
-デバイスのRead/Writeを実行したり（Pinも動的に指定可能です）、デバイス側からのイベント（例えばM5Stack系デバイスのボタン等）を受け取って非同期に処理を実行したりできます。  
+デバイスのRead/Writeを実行したり（Pinも動的に指定可能です）、デバイス側からのイベント（たとえばM5Stack系デバイスのボタン等）を受け取って非同期に処理を実行したりできます。  
 
 
 
@@ -51,7 +53,7 @@ const address = "192.168.0.1" // opnizデバイスのIPアドレスを指定
 const port = 3000             // 任意のポートを指定（opnizデバイスでの指定と合わせる）
 
 const main = async () => {
-	const opniz = new Opniz.M5AtomLite({ address, port }) // opnizインスタンス生成
+	const opniz = new Opniz.M5Atom({ address, port }) // opnizインスタンス生成
 	await opniz.connect()                                 // opnizデバイスへ接続
 	console.log(await opniz.getFreeHeap())                // opnizデバイスのヒープメモリーサイズを取得して表示
 }
@@ -68,12 +70,12 @@ const port = 3000             // 任意のポートを指定（opnizデバイス
 
 const main = async () => {
 	// opnizインスタンス生成
-	const opniz = new Opniz.M5AtomLite({ address, port })
+	const opniz = new Opniz.M5Atom({ address, port })
 	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) {
 		console.log("connect...")
-		await Opniz.sleep(1000)
+		await opniz.sleep(1000)
 	}
 	console.log("[connected]")
 	
@@ -81,7 +83,7 @@ const main = async () => {
 		// 1秒おきにデバイスのヒープメモリーサイズを表示
 		for (;;) {
 			console.log(await opniz.getFreeHeap())
-			await Opniz.sleep(1000)
+			await opniz.sleep(1000)
 		}
 		
 	// エラー処理
@@ -101,7 +103,7 @@ main()
 
 ### M5ATOMでLチカ（内蔵LED）
 
-M5ATOM（Lite、Matrixどちらでも構いません）でLチカを行ってみます。  
+M5ATOM（Lite、Matrixどちらでもかまいません）でLチカを行ってみます。  
 まずはM5ATOMに内蔵されているLEDを制御します。  
 ※M5Stack、M5StickCは「M5ATOMでLチカ（ピンに挿したLED）」をお試しください  
 
@@ -122,12 +124,12 @@ let color = OFF
 
 const main = async () => {
 	// opnizインスタンス生成
-	const opniz = new Opniz.M5AtomLite({ address, port })
+	const opniz = new Opniz.M5Atom({ address, port })
 	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) {
 		console.log("connect...")
-		await Opniz.sleep(1000)
+		await opniz.sleep(1000)
 	}
 	console.log("[connected]")
 	
@@ -136,7 +138,7 @@ const main = async () => {
 		for (;;) {
 			color = color === OFF ? BLUE : OFF
 			await opniz.drawpix(0, color)
-			await Opniz.sleep(1000)
+			await opniz.sleep(1000)
 		}
 		
 	// エラー処理
@@ -170,12 +172,12 @@ let value = LOW
 
 const main = async () => {
 	// opnizインスタンス生成
-	const opniz = new Opniz.M5AtomLite({ address, port })
+	const opniz = new Opniz.M5Atom({ address, port })
 	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) {
 		console.log("connect...")
-		await Opniz.sleep(1000)
+		await opniz.sleep(1000)
 	}
 	console.log("[connected]")
 	
@@ -184,7 +186,7 @@ const main = async () => {
 		for (;;) {
 			value = value === LOW ? HIGH: LOW
 			await opniz.digitalWrite(21, value)
-			await Opniz.sleep(1000)
+			await opniz.sleep(1000)
 		}
 		
 	// エラー処理
@@ -210,12 +212,12 @@ const port = 3000             // 任意のポートを指定（opnizデバイス
 
 const main = async () => {
 	// opnizインスタンス生成
-	const opniz = new Opniz.M5AtomLite({ address, port })
+	const opniz = new Opniz.M5Atom({ address, port })
 	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) {
 		console.log("connect...")
-		await Opniz.sleep(1000)
+		await opniz.sleep(1000)
 	}
 	console.log("[connected]")
 	
@@ -225,7 +227,7 @@ const main = async () => {
 	try {
 		// 無限ループ
 		for (;;) {
-			await Opniz.sleep(1000)
+			await opniz.sleep(1000)
 		}
 		
 	// エラー処理

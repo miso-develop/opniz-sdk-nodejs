@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.M5AtomLite = void 0;
-const Esp32Pico_1 = require("./Esp32Pico");
+exports.M5Atom = void 0;
+const Esp32_1 = require("./Esp32");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
-class M5AtomLite extends Esp32Pico_1.Esp32Pico {
+class M5Atom extends Esp32_1.Esp32 {
     constructor() {
         super(...arguments);
-        this._name = "m5atom-lite";
+        this._name = "m5atom";
         // add device events onmethod
         this.onbutton = () => { };
     }
@@ -21,5 +21,5 @@ class M5AtomLite extends Esp32Pico_1.Esp32Pico {
         return Boolean(await super.exec("drawpix", number, color));
     }
 }
-exports.M5AtomLite = M5AtomLite;
-//# sourceMappingURL=M5AtomLite.js.map
+exports.M5Atom = M5Atom;
+//# sourceMappingURL=M5Atom.js.map

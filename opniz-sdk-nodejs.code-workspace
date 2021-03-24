@@ -1,10 +1,15 @@
 {
 	"folders": [
 		{
-			"path": "."
-		}
+			"path": ".",
+		},
 	],
 	"settings": {
+		"workbench.colorCustomizations": {
+			"titleBar.activeBackground": "#38542d",
+			"activityBarBadge.background": "#38542d",
+			"statusBar.background": "#38542d",
+		},
 		"cSpell.words": [
 			"colorcode",
 			"drawpix",
@@ -21,6 +26,6 @@
 			"opniz",
 			"pico",
 			"raspi"
-		]
-	}
+		],
+	},
 }

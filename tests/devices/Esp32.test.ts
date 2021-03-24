@@ -1,33 +1,33 @@
-import { Esp32Pico } from "../../src/devices/Esp32Pico"
-import { Esp32PicoMock } from "./Esp32PicoMock"
+import { Esp32 } from "../../src/devices/Esp32"
+import { Esp32Mock } from "./Esp32Mock"
 import { ClientMock } from "./lib/ClientMock"
 
 import ip from "ip"
 
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../src/utils"
 
-describe("Esp32Pico", () => {
-// describe.skip("Esp32Pico", () => {
+describe("Esp32", () => {
+// describe.skip("Esp32", () => {
 	
 	const address = ip.address()
 	const port = 55040
 	const serverPort = 55041
 	
-	let device: Esp32Pico
+	let device: Esp32
 	
 	let clientMock: ClientMock
-	let serverMock: Esp32PicoMock
+	let serverMock: Esp32Mock
 	
 	
 	
 	beforeAll(async () => {
 		clientMock = new ClientMock(address, serverPort)
-		serverMock = new Esp32PicoMock()
+		serverMock = new Esp32Mock()
 		serverMock.createServer(port)
 	})
 	
 	beforeEach(async () => {
-		device = new Esp32Pico({ address, port, serverPort })
+		device = new Esp32({ address, port, serverPort })
 	})
 	
 	
@@ -159,7 +159,7 @@ describe("Esp32Pico", () => {
 	describe("Properties", () => {
 		
 		test("name", async () => {
-			expect(device.name).toBe("esp32pico")
+			expect(device.name).toBe("esp32")
 		})
 	})
 	
@@ -167,15 +167,15 @@ describe("Esp32Pico", () => {
 	
 	describe("Extend", () => {
 		
-		class Esp32PicoExtend extends Esp32Pico {
-			protected _name = "esp32-pico-extend"
+		class Esp32Extend extends Esp32 {
+			protected _name = "esp32-extend"
 			protected addDeviceMessageHandlers(messageHandler): void {}
 		}
 		
 		test("name", async () => {
 			await device.close()
-			device = new Esp32PicoExtend({ address, port, serverPort })
-			expect(device.name).toBe("esp32-pico-extend")
+			device = new Esp32Extend({ address, port, serverPort })
+			expect(device.name).toBe("esp32-extend")
 		})
 	})
 	

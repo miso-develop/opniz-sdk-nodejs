@@ -1,4 +1,4 @@
-import { Esp32Pico } from "./Esp32Pico"
+import { Esp32 } from "./Esp32"
 import { MessageHandler, Message } from "./BaseDevice"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
@@ -6,8 +6,8 @@ import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generate
 
 
 
-export class M5AtomLite extends Esp32Pico {
-	protected _name = "m5atom-lite"
+export class M5Atom extends Esp32 {
+	protected _name = "m5atom"
 	
 	// add device events onmethod
 	public onbutton: () => void = () => {}

@@ -10,7 +10,6 @@ export const log = (...v: any[]): void => console.log(`${getDateStr()} ${v.join(
 
 export const sleep = (ms: number): Promise<void> => new Promise(res => setTimeout(res, ms))
 export const wait = sleep
-export const delay = sleep
 
 export const zeroPadding = (value: string, length: number): string => ("0".repeat(length) + value).slice(-length)
 
@@ -23,9 +22,9 @@ export const generateRandomColorcode = (): string => {
 }
 
 export const generateRandomColorcodeClosure = () => {
-    let color;
-    let preColor = color = "#ffffff";
-    return () => {
+	let color
+	let preColor = color = "#ffffff"
+	return () => {
 		while (color === preColor) color = generateRandomColorcode()
 		preColor = color
 		return color

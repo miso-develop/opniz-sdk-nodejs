@@ -3,7 +3,7 @@ import { ServerMock } from "./lib/ServerMock"
 
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../src/utils"
 
-export class Esp32PicoMock extends ServerMock {
+export class Esp32Mock extends ServerMock {
 	public ondata = async (data, socket: net.Socket) => {
 		await sleep(this.wait)
 		await sleep(100)

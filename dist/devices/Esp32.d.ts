@@ -1,5 +1,5 @@
 import { BaseDevice, MessageHandler } from "./BaseDevice";
-export declare class Esp32Pico extends BaseDevice {
+export declare class Esp32 extends BaseDevice {
     protected _name: string;
     protected addDeviceMessageHandlers(messageHandlers: MessageHandler[]): void;
     getFreeHeap(): Promise<number>;

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateRandomColorcodeClosure = exports.generateRandomColorcode = exports.zeroPadding = exports.delay = exports.wait = exports.sleep = exports.log = exports.getDateStr = exports.chalk = exports.dayjs = void 0;
+exports.generateRandomColorcodeClosure = exports.generateRandomColorcode = exports.zeroPadding = exports.wait = exports.sleep = exports.log = exports.getDateStr = exports.chalk = exports.dayjs = void 0;
 const dayjs_1 = __importDefault(require("dayjs"));
 exports.dayjs = dayjs_1.default;
 const chalk_1 = __importDefault(require("chalk"));
@@ -16,7 +16,6 @@ exports.log = log;
 const sleep = (ms) => new Promise(res => setTimeout(res, ms));
 exports.sleep = sleep;
 exports.wait = exports.sleep;
-exports.delay = exports.sleep;
 const zeroPadding = (value, length) => ("0".repeat(length) + value).slice(-length);
 exports.zeroPadding = zeroPadding;
 const generateRandomColorcode = () => {
@@ -28,7 +27,8 @@ const generateRandomColorcode = () => {
 };
 exports.generateRandomColorcode = generateRandomColorcode;
 const generateRandomColorcodeClosure = () => {
-    let color, preColor = color = "#ffffff";
+    let color;
+    let preColor = color = "#ffffff";
     return () => {
         while (color === preColor)
             color = exports.generateRandomColorcode();

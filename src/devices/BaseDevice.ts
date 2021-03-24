@@ -1,6 +1,7 @@
 import { TcpManager, MessageHandler, Message } from "./lib/TcpManager"
+import * as utils from "../utils"
 
-import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
+// import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseDevice]", ...v)) // DEBUG:
 
 
@@ -39,4 +40,9 @@ export abstract class BaseDevice extends TcpManager {
 	get name(): string {
 		return this._name
 	}
+	
+	// utils
+	public utils = utils
+	public sleep = utils.sleep
+	public wait = utils.wait
 }

@@ -1,4 +1,4 @@
-import { M5AtomLite } from "../../src/devices/M5AtomLite"
+import { M5Atom } from "../../src/devices/M5Atom"
 import { ServerMock } from "./lib/ServerMock"
 import { ClientMock } from "./lib/ClientMock"
 
@@ -6,14 +6,14 @@ import ip from "ip"
 
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../src/utils"
 
-describe("M5AtomLite", () => {
-// describe.skip("M5AtomLite", () => {
+describe("M5Atom", () => {
+// describe.skip("M5Atom", () => {
 	
 	const address = ip.address()
 	const port = 55050
 	const serverPort = 55051
 	
-	let device: M5AtomLite
+	let device: M5Atom
 	
 	let clientMock: ClientMock
 	let serverMock: ServerMock
@@ -27,7 +27,7 @@ describe("M5AtomLite", () => {
 	})
 	
 	beforeEach(async () => {
-		device = new M5AtomLite({ address, port, serverPort })
+		device = new M5Atom({ address, port, serverPort })
 	})
 	
 	
@@ -107,7 +107,7 @@ describe("M5AtomLite", () => {
 	describe("Properties", () => {
 		
 		test("name", async () => {
-			expect(device.name).toBe("m5atom-lite")
+			expect(device.name).toBe("m5atom")
 		})
 	})
 	
@@ -115,15 +115,15 @@ describe("M5AtomLite", () => {
 	
 	describe("Extend", () => {
 		
-		class M5AtomLiteExtend extends M5AtomLite {
-			protected _name = "m5atom-lite-extend"
+		class M5AtomExtend extends M5Atom {
+			protected _name = "m5atom-extend"
 			protected addDeviceMessageHandlers(messageHandler): void {}
 		}
 		
 		test("name", async () => {
 			await device.close()
-			device = new M5AtomLiteExtend({ address, port, serverPort })
-			expect(device.name).toBe("m5atom-lite-extend")
+			device = new M5AtomExtend({ address, port, serverPort })
+			expect(device.name).toBe("m5atom-extend")
 		})
 	})
 	

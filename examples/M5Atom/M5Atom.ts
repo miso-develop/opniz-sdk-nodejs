@@ -1,4 +1,4 @@
-const { Opniz } = require("opniz")
+import { Opniz } from "opniz"
 
 const address = "192.168.0.1"
 const port = 3000
@@ -9,12 +9,12 @@ let color = OFF
 
 const main = async () => {
 	// opnizインスタンス生成
-	const opniz = new Opniz.M5AtomLite({ address, port })
+	const opniz = new Opniz.M5Atom({ address, port })
 	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) {
 		console.log("connect...")
-		await Opniz.sleep(1000)
+		await opniz.sleep(1000)
 	}
 	console.log("[connected]")
 	
@@ -26,7 +26,7 @@ const main = async () => {
 		for (;;) {
 			color = color === OFF ? BLUE : OFF
 			await opniz.drawpix(0, color)
-			await Opniz.sleep(1000)
+			await opniz.sleep(1000)
 		}
 		
 	// エラー処理

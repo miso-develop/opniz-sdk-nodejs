@@ -21,17 +21,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Opniz = void 0;
 const BaseDevice_1 = require("./devices/BaseDevice");
-const Esp32Pico_1 = require("./devices/Esp32Pico");
-const M5AtomLite_1 = require("./devices/M5AtomLite");
+const Esp32_1 = require("./devices/Esp32");
+const M5Atom_1 = require("./devices/M5Atom");
 const utils = __importStar(require("./utils"));
 class Opniz {
 }
 exports.Opniz = Opniz;
 Opniz.BaseDevice = BaseDevice_1.BaseDevice;
-Opniz.Esp32Pico = Esp32Pico_1.Esp32Pico;
-Opniz.M5AtomLite = M5AtomLite_1.M5AtomLite;
+Opniz.Esp32 = Esp32_1.Esp32;
+Opniz.M5Atom = M5Atom_1.M5Atom;
 Opniz.utils = utils;
-Opniz.sleep = utils.sleep;
-Opniz.wait = utils.wait;
-Opniz.delay = utils.delay;
 //# sourceMappingURL=index.js.map

@@ -5,8 +5,8 @@ import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generate
 
 
 
-export class Esp32Pico extends BaseDevice {
-	protected _name = "esp32pico"
+export class Esp32 extends BaseDevice {
+	protected _name = "esp32"
 	
 	protected addDeviceMessageHandlers(messageHandlers: MessageHandler[]): void {}
 	

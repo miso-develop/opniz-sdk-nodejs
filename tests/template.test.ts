@@ -1,8 +1,7 @@
 
 
 
-describe.skip("Class", () => {
-	// const xxx: XXX
+describe("Class", () => {
 	
 	
 	
@@ -21,8 +20,8 @@ describe.skip("Class", () => {
 		describe("Method", () => {
 			
 			test("xxx", async () => {
-				const actual = "xxx"
-				expect(actual).toBe("xxx")
+				// const actual = "xxx"
+				// expect(actual).toBe("xxx")
 			})
 		})
 	})
@@ -34,8 +33,8 @@ describe.skip("Class", () => {
 		describe("Property", () => {
 			
 			test("xxx", async () => {
-				const actual = "xxx"
-				expect(actual).toBe("xxx")
+				// const actual = "xxx"
+				// expect(actual).toBe("xxx")
 			})
 		})
 	})

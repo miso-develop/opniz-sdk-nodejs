@@ -119,8 +119,12 @@ typings/
 
 
 
-# miso
-dist/main.*
-src/main.*
-temp/
-issue.md
+# develop
+# /docs
+# /dist
+
+# release
+/dist/main.*
+/src/main.*
+/temp
+/issue.md

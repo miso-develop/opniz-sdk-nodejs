@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Esp32Pico = void 0;
+exports.Esp32 = void 0;
 const BaseDevice_1 = require("./BaseDevice");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
-class Esp32Pico extends BaseDevice_1.BaseDevice {
+class Esp32 extends BaseDevice_1.BaseDevice {
     constructor() {
         super(...arguments);
-        this._name = "esp32pico";
+        this._name = "esp32";
     }
     addDeviceMessageHandlers(messageHandlers) { }
     async getFreeHeap() {
@@ -46,5 +46,5 @@ class Esp32Pico extends BaseDevice_1.BaseDevice {
         return Boolean(await this.exec("ledcWrite", pin, duty, channel, freq, resolutionBits));
     }
 }
-exports.Esp32Pico = Esp32Pico;
-//# sourceMappingURL=Esp32Pico.js.map
+exports.Esp32 = Esp32;
+//# sourceMappingURL=Esp32.js.map

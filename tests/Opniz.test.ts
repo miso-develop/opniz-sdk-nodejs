@@ -19,13 +19,13 @@ describe("Opniz", () => {
 		expect(device.name).toBe("device")
 	})
 	
-	test("Esp32Pico", async () => {
-		const device = new Opniz.Esp32Pico({ address, port, serverPort })
-		expect(device.name).toBe("esp32pico")
+	test("Esp32", async () => {
+		const device = new Opniz.Esp32({ address, port, serverPort })
+		expect(device.name).toBe("esp32")
 	})
 	
-	test("M5AtomLite", async () => {
-		const device = new Opniz.M5AtomLite({ address, port, serverPort })
-		expect(device.name).toBe("m5atom-lite")
+	test("M5Atom", async () => {
+		const device = new Opniz.M5Atom({ address, port, serverPort })
+		expect(device.name).toBe("m5atom")
 	})
 })
