@@ -8,3 +8,4 @@ export declare const wait: (ms: number) => Promise<void>;
 export declare const zeroPadding: (value: string, length: number) => string;
 export declare const generateRandomColorcode: () => string;
 export declare const generateRandomColorcodeClosure: () => () => any;
+//# sourceMappingURL=utils.d.ts.map

@@ -35,3 +35,4 @@ export declare class TcpServer extends EventEmitter {
     }): Promise<void>;
     isListening(): boolean;
 }
+//# sourceMappingURL=TcpServer.d.ts.map

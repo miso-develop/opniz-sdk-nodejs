@@ -4,32 +4,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateRandomColorcodeClosure = exports.generateRandomColorcode = exports.zeroPadding = exports.wait = exports.sleep = exports.log = exports.getDateStr = exports.chalk = exports.dayjs = void 0;
-const dayjs_1 = __importDefault(require("dayjs"));
+var dayjs_1 = __importDefault(require("dayjs"));
 exports.dayjs = dayjs_1.default;
-const chalk_1 = __importDefault(require("chalk"));
+var chalk_1 = __importDefault(require("chalk"));
 exports.chalk = chalk_1.default;
-const getDateStr = () => dayjs_1.default().format("YYYY/MM/DD HH:mm:ss");
+var getDateStr = function () { return dayjs_1.default().format("YYYY/MM/DD HH:mm:ss"); };
 exports.getDateStr = getDateStr;
 // export const log = (...v) => console.log(...v)
-const log = (...v) => console.log(`${exports.getDateStr()} ${v.join(" ")}`);
+var log = function () {
+    var v = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        v[_i] = arguments[_i];
+    }
+    return console.log(exports.getDateStr() + " " + v.join(" "));
+};
 exports.log = log;
-const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+var sleep = function (ms) { return new Promise(function (res) { return setTimeout(res, ms); }); };
 exports.sleep = sleep;
 exports.wait = exports.sleep;
-const zeroPadding = (value, length) => ("0".repeat(length) + value).slice(-length);
+var zeroPadding = function (value, length) { return ("0".repeat(length) + value).slice(-length); };
 exports.zeroPadding = zeroPadding;
-const generateRandomColorcode = () => {
-    const createRandomByte = () => exports.zeroPadding(Math.floor(Math.random() * 255).toString(16), 2);
-    const createRandomBit = () => Math.round(Math.random());
-    const getFF00 = (bit) => bit === 1 ? "ff" : "00";
-    const randomColor = `${getFF00(createRandomBit())}${getFF00(createRandomBit())}${getFF00(createRandomBit())}`;
-    return `#${randomColor === "000000" ? "ffffff" : randomColor}`;
+var generateRandomColorcode = function () {
+    var createRandomByte = function () { return exports.zeroPadding(Math.floor(Math.random() * 255).toString(16), 2); };
+    var createRandomBit = function () { return Math.round(Math.random()); };
+    var getFF00 = function (bit) { return bit === 1 ? "ff" : "00"; };
+    var randomColor = "" + getFF00(createRandomBit()) + getFF00(createRandomBit()) + getFF00(createRandomBit());
+    return "#" + (randomColor === "000000" ? "ffffff" : randomColor);
 };
 exports.generateRandomColorcode = generateRandomColorcode;
-const generateRandomColorcodeClosure = () => {
-    let color;
-    let preColor = color = "#ffffff";
-    return () => {
+var generateRandomColorcodeClosure = function () {
+    var color;
+    var preColor = color = "#ffffff";
+    return function () {
         while (color === preColor)
             color = exports.generateRandomColorcode();
         preColor = color;

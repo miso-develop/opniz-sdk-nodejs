@@ -6,3 +6,4 @@ export declare class M5Atom extends Esp32 {
     protected addDeviceMessageHandlers(messageHandlers: MessageHandler[]): void;
     drawpix(number: number, color: string): Promise<boolean>;
 }
+//# sourceMappingURL=M5Atom.d.ts.map

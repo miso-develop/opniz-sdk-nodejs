@@ -35,3 +35,4 @@ export declare class TcpClient extends EventEmitter {
     isConnected(): boolean;
     setTimeout(timeout: number): void;
 }
+//# sourceMappingURL=TcpClient.d.ts.map

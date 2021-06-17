@@ -13,3 +13,4 @@ export declare abstract class BaseDevice extends TcpManager {
     sleep: (ms: number) => Promise<void>;
     wait: (ms: number) => Promise<void>;
 }
+//# sourceMappingURL=BaseDevice.d.ts.map

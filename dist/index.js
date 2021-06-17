@@ -20,15 +20,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Opniz = void 0;
-const BaseDevice_1 = require("./devices/BaseDevice");
-const Esp32_1 = require("./devices/Esp32");
-const M5Atom_1 = require("./devices/M5Atom");
-const utils = __importStar(require("./utils"));
-class Opniz {
-}
+var BaseDevice_1 = require("./devices/BaseDevice");
+var Esp32_1 = require("./devices/Esp32");
+var M5Atom_1 = require("./devices/M5Atom");
+var utils = __importStar(require("./utils"));
+var Opniz = /** @class */ (function () {
+    function Opniz() {
+    }
+    Opniz.BaseDevice = BaseDevice_1.BaseDevice;
+    Opniz.Esp32 = Esp32_1.Esp32;
+    Opniz.M5Atom = M5Atom_1.M5Atom;
+    Opniz.utils = utils;
+    return Opniz;
+}());
 exports.Opniz = Opniz;
-Opniz.BaseDevice = BaseDevice_1.BaseDevice;
-Opniz.Esp32 = Esp32_1.Esp32;
-Opniz.M5Atom = M5Atom_1.M5Atom;
-Opniz.utils = utils;
 //# sourceMappingURL=index.js.map

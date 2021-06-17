@@ -12,3 +12,4 @@ export declare class Esp32 extends BaseDevice {
     digitalWrite(pin: number, val: number): Promise<boolean>;
     ledcWrite(pin: number, duty: number, channel?: number, freq?: number, resolutionBits?: number): Promise<boolean>;
 }
+//# sourceMappingURL=Esp32.d.ts.map

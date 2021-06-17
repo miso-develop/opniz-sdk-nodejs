@@ -29,3 +29,4 @@ export declare class TcpManager extends EventEmitter {
     private _isDisconnected;
     setTimeout(timeout: number): void;
 }
+//# sourceMappingURL=TcpManager.d.ts.map

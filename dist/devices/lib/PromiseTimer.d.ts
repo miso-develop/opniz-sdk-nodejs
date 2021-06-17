@@ -11,3 +11,4 @@ export declare class PromiseTimer {
     timers(functions: Promise<any>[], { error, timeout, }?: TimeoutOptions): Promise<any>;
     private _causeTimeout;
 }
+//# sourceMappingURL=PromiseTimer.d.ts.map

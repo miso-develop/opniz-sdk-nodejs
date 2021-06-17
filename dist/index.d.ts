@@ -8,3 +8,4 @@ export declare class Opniz {
     static M5Atom: typeof M5Atom;
     static utils: typeof utils;
 }
+//# sourceMappingURL=index.d.ts.map
