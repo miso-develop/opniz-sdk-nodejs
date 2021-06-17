@@ -122,6 +122,7 @@ typings/
 # develop
 # /docs
 # /dist
+# /temp/log
 
 # release
 /dist/main.*
