@@ -1,6 +1,6 @@
 {
 	"name": "opniz",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "opniz sdk for nodejs",
 	"keywords": [
 		"opniz",
@@ -24,7 +24,7 @@
 	"files": [
 		"dist"
 	],
-	"private": true,
+	"private": false,
 	"scripts": {
 		"prepare": "npm run build && npx husky install",
 		"nodemon": "nodemon --watch dist dist/index.js",
