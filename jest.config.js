@@ -1,6 +1,6 @@
 module.exports = {
 	"moduleFileExtensions": ["ts", "js"],
-	"transform": { "^.+\\.ts$": "ts-jest" },
+	"transform": { "^.+\\.ts$": "esbuild-jest" },
 	"globals": { "ts-jest": { "tsconfig": "tsconfig.json" } },
 	"testMatch": ["**/tests/**/*.test.ts"],
 	"moduleNameMapper": { "^#/(.+)": "<rootDir>/src/$1" },
@@ -18,6 +18,6 @@ module.exports = {
 		
 		"**/PromiseTimer.ts ": {
 			"branches": 77.78,
-		}
+		},
 	},
 }
