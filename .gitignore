@@ -126,7 +126,7 @@ typings/
 
 # release
 /dist/**/main.*
-/docs/**/main.*
+/docs/**/main.html
 /src/**/main.*
 /temp
 /issue.md
