@@ -1,7 +1,7 @@
-import { BaseDevice, MessageHandler } from "./BaseDevice";
+import { BaseDevice } from "./base/BaseDevice";
+export { RpcRequest, Protocol } from "./base/BaseDevice";
 export declare class Esp32 extends BaseDevice {
-    protected _name: string;
-    protected addDeviceMessageHandlers(messageHandlers: MessageHandler[]): void;
+    getDeviceName(): Promise<string>;
     getFreeHeap(): Promise<number>;
     temperatureRead(): Promise<number>;
     restart(): Promise<boolean>;

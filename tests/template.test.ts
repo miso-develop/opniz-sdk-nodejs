@@ -1,7 +1,12 @@
+import { env, getPort } from "./env"
+import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../src/utils"
 
-
-
-describe("Class", () => {
+describe("<ClassName>", () => {
+// describe.skip("<ClassName>", () => {
+	
+	const _env = env
+	
+	let xxx
 	
 	
 	
@@ -17,7 +22,7 @@ describe("Class", () => {
 	
 	describe("Methods", () => {
 		
-		describe("Method", () => {
+		describe("<MethodName>", () => {
 			
 			test("xxx", async () => {
 				// const actual = "xxx"
@@ -30,7 +35,7 @@ describe("Class", () => {
 	
 	describe("Properties", () => {
 		
-		describe("Property", () => {
+		describe("<PropertyName>", () => {
 			
 			test("xxx", async () => {
 				// const actual = "xxx"
@@ -46,6 +51,7 @@ describe("Class", () => {
 	})
 	
 	afterAll(async () => {
-		
+		// await sleep(100)
 	})
+	
 })

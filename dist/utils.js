@@ -1,4 +1,9 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from) {
+    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+        to[j] = from[i];
+    return to;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -16,7 +21,7 @@ var log = function () {
     for (var _i = 0; _i < arguments.length; _i++) {
         v[_i] = arguments[_i];
     }
-    return console.log(exports.getDateStr() + " " + v.join(" "));
+    return console.log.apply(console, __spreadArray([exports.getDateStr()], v));
 };
 exports.log = log;
 var sleep = function (ms) { return new Promise(function (res) { return setTimeout(res, ms); }); };

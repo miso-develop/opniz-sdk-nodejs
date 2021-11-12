@@ -1,33 +1,30 @@
 import { Esp32 } from "../../src/devices/Esp32"
-import { Esp32Mock } from "./Esp32Mock"
-import { ClientMock } from "./lib/ClientMock"
-
-import ip from "ip"
-
+import { BaseTransportMock } from "./base/BaseTransportMock"
+import { env, getPort } from "../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../src/utils"
 
 describe("Esp32", () => {
 // describe.skip("Esp32", () => {
 	
-	const address = ip.address()
-	const port = 55040
-	const serverPort = 55041
-	
 	let device: Esp32
+	let deviceMock: Esp32
 	
-	let clientMock: ClientMock
-	let serverMock: Esp32Mock
+	const _env = env.devices.Esp32
+	const address = env.common.address
+	let port
+	let serverPort
 	
 	
 	
 	beforeAll(async () => {
-		clientMock = new ClientMock(address, serverPort)
-		serverMock = new Esp32Mock()
-		serverMock.createServer(port)
+		port = await getPort()
+		serverPort = await getPort()
 	})
 	
 	beforeEach(async () => {
 		device = new Esp32({ address, port, serverPort })
+		deviceMock = new Esp32({ address, port: serverPort, serverPort: port })
+		device.setTimeout(3000)
 	})
 	
 	
@@ -62,14 +59,17 @@ describe("Esp32", () => {
 		describe("connect後", () => {
 			
 			beforeEach(async () => {
-				await device.connect()
+				await Promise.all([
+					device.connect(),
+					deviceMock.connect(),
+				])
 			})
 			
 			describe("getFreeHeap()", () => {
 				
 				test("正常", async () => {
 					const actual = device.getFreeHeap()
-					await expect(actual).resolves.toBe(1)
+					await expect(actual).resolves.toBe(-1)
 				})
 			})
 			
@@ -77,7 +77,7 @@ describe("Esp32", () => {
 				
 				test("正常", async () => {
 					const actual = device.temperatureRead()
-					await expect(actual).resolves.toBe(1)
+					await expect(actual).resolves.toBe(-1)
 				})
 			})
 			
@@ -85,15 +85,15 @@ describe("Esp32", () => {
 				
 				test("正常", async () => {
 					const actual = device.restart()
-					await expect(actual).resolves.toBeTruthy()
+					await expect(actual).resolves.toBeFalsy()
 				})
 			})
 			
 			describe("delay()", () => {
 				
 				test("正常", async () => {
-					const actual = device.delay(1000)
-					await expect(actual).resolves.toBeTruthy()
+					const actual = device.delay(100)
+					await expect(actual).resolves.toBeFalsy()
 				})
 			})
 			
@@ -101,12 +101,12 @@ describe("Esp32", () => {
 				
 				test("正常", async () => {
 					const actual = device.analogRead(1)
-					await expect(actual).resolves.toBe(1)
+					await expect(actual).resolves.toBe(-1)
 				})
 				
 				describe("異常", () => {
 					
-					// TODO: おいおい実装
+					// TODO: いずれ実装
 					// test("ピン番号マイナス値", async () => {
 					// 	const actual = device.analogRead(-1)
 					// 	await expect(actual).rejects.toThrowError(Error)
@@ -119,7 +119,7 @@ describe("Esp32", () => {
 				
 				test("正常", async () => {
 					const actual = device.dacWrite(1, 2)
-					await expect(actual).resolves.toBeTruthy()
+					await expect(actual).resolves.toBeFalsy()
 				})
 			})
 			
@@ -127,7 +127,7 @@ describe("Esp32", () => {
 				
 				test("正常", async () => {
 					const actual = device.digitalRead(1)
-					await expect(actual).resolves.toBe(1)
+					await expect(actual).resolves.toBe(-1)
 				})
 			})
 			
@@ -135,7 +135,7 @@ describe("Esp32", () => {
 				
 				test("正常", async () => {
 					const actual = device.digitalWrite(1, 2)
-					await expect(actual).resolves.toBeTruthy()
+					await expect(actual).resolves.toBeFalsy()
 				})
 			})
 			
@@ -143,12 +143,12 @@ describe("Esp32", () => {
 				
 				test("正常（引数最小限）", async () => {
 					const actual = device.ledcWrite(1, 2)
-					await expect(actual).resolves.toBeTruthy()
+					await expect(actual).resolves.toBeFalsy()
 				})
 				
 				test("正常（引数全て）", async () => {
 					const actual = device.ledcWrite(1, 2, 3, 4, 5)
-					await expect(actual).resolves.toBeTruthy()
+					await expect(actual).resolves.toBeFalsy()
 				})
 			})
 		})
@@ -156,39 +156,28 @@ describe("Esp32", () => {
 	
 	
 	
-	describe("Properties", () => {
-		
-		test("name", async () => {
-			expect(device.name).toBe("esp32")
-		})
-	})
-	
-	
-	
 	describe("Extend", () => {
 		
-		class Esp32Extend extends Esp32 {
-			protected _name = "esp32-extend"
-			protected addDeviceMessageHandlers(messageHandler): void {}
-		}
+		class Esp32Extend extends Esp32 {}
 		
 		test("name", async () => {
 			await device.close()
 			device = new Esp32Extend({ address, port, serverPort })
-			expect(device.name).toBe("esp32-extend")
+			expect(device).toBeInstanceOf(Esp32Extend)
 		})
 	})
 	
 	
 	
 	afterEach(async () => {
-		await device.close()
+		await Promise.all([
+			device.close(),
+			deviceMock.close(),
+		])
 	})
 	
 	afterAll(async () => {
-		await device.close()
-		serverMock.close()
-		await sleep(1000)
+		// await sleep(100)
 	})
 	
 })

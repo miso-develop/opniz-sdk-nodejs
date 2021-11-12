@@ -6,7 +6,7 @@ export { dayjs, chalk }
 export const getDateStr = () => dayjs().format("YYYY/MM/DD HH:mm:ss")
 
 // export const log = (...v) => console.log(...v)
-export const log = (...v: any[]): void => console.log(`${getDateStr()} ${v.join(" ")}`)
+export const log = (...v: any[]): void => console.log(getDateStr(), ...v)
 
 export const sleep = (ms: number): Promise<void> => new Promise(res => setTimeout(res, ms))
 export const wait = sleep

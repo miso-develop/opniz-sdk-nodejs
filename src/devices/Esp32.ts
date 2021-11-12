@@ -1,23 +1,25 @@
-import { BaseDevice, MessageHandler, Message } from "./BaseDevice"
+/* eslint @typescript-eslint/no-inferrable-types: "off" */
+import { BaseDevice, Protocol } from "./base/BaseDevice"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
 
-
+export { RpcRequest, Protocol } from "./base/BaseDevice"
 
 export class Esp32 extends BaseDevice {
-	protected _name = "esp32"
 	
-	protected addDeviceMessageHandlers(messageHandlers: MessageHandler[]): void {}
+	public async getDeviceName(): Promise<string> {
+		return (await this.exec("_getDeviceName():String") || "")
+	}
 	
 	public async getFreeHeap(): Promise<number> {
 		// dbg("[getFreeHeap]")
-		return Number(await this.exec("getFreeHeap"))
+		return Number(await this.exec("getFreeHeap") || -1)
 	}
 	
 	public async temperatureRead(): Promise<number> {
 		// dbg("[temperatureRead]")
-		return Number(await this.exec("temperatureRead"))
+		return Number(await this.exec("temperatureRead") || -1)
 	}
 	
 	public async restart(): Promise<boolean> {
@@ -32,7 +34,7 @@ export class Esp32 extends BaseDevice {
 	
 	public async analogRead(pin: number): Promise<number> {
 		// dbg("[analogRead]")
-		return Number(await this.exec("analogRead", pin))
+		return Number(await this.exec("analogRead", pin) || -1)
 	}
 	
 	public async dacWrite(pin: number, value: number): Promise<boolean> {
@@ -42,7 +44,7 @@ export class Esp32 extends BaseDevice {
 	
 	public async digitalRead(pin: number): Promise<number> {
 		// dbg("[digitalRead]")
-		return Number(await this.exec("digitalRead", pin))
+		return Number(await this.exec("digitalRead", pin) || -1)
 	}
 	
 	public async digitalWrite(pin: number, val: number): Promise<boolean> {

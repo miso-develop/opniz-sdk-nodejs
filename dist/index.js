@@ -20,7 +20,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Opniz = void 0;
-var BaseDevice_1 = require("./devices/BaseDevice");
+var BaseDevice_1 = require("./devices/base/BaseDevice");
 var Esp32_1 = require("./devices/Esp32");
 var M5Atom_1 = require("./devices/M5Atom");
 var utils = __importStar(require("./utils"));

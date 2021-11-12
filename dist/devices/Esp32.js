@@ -51,17 +51,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Esp32 = void 0;
-var BaseDevice_1 = require("./BaseDevice");
+exports.Esp32 = exports.Protocol = void 0;
+/* eslint @typescript-eslint/no-inferrable-types: "off" */
+var BaseDevice_1 = require("./base/BaseDevice");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
+var BaseDevice_2 = require("./base/BaseDevice");
+Object.defineProperty(exports, "Protocol", { enumerable: true, get: function () { return BaseDevice_2.Protocol; } });
 var Esp32 = /** @class */ (function (_super) {
     __extends(Esp32, _super);
     function Esp32() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this._name = "esp32";
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    Esp32.prototype.addDeviceMessageHandlers = function (messageHandlers) { };
+    Esp32.prototype.getDeviceName = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.exec("_getDeviceName():String")];
+                    case 1: return [2 /*return*/, ((_a.sent()) || "")];
+                }
+            });
+        });
+    };
     Esp32.prototype.getFreeHeap = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _a;
@@ -72,7 +82,7 @@ var Esp32 = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.exec("getFreeHeap")];
                     case 1: 
                     // dbg("[getFreeHeap]")
-                    return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    return [2 /*return*/, _a.apply(void 0, [(_b.sent()) || -1])];
                 }
             });
         });
@@ -87,7 +97,7 @@ var Esp32 = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.exec("temperatureRead")];
                     case 1: 
                     // dbg("[temperatureRead]")
-                    return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    return [2 /*return*/, _a.apply(void 0, [(_b.sent()) || -1])];
                 }
             });
         });
@@ -132,7 +142,7 @@ var Esp32 = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.exec("analogRead", pin)];
                     case 1: 
                     // dbg("[analogRead]")
-                    return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    return [2 /*return*/, _a.apply(void 0, [(_b.sent()) || -1])];
                 }
             });
         });
@@ -162,7 +172,7 @@ var Esp32 = /** @class */ (function (_super) {
                         return [4 /*yield*/, this.exec("digitalRead", pin)];
                     case 1: 
                     // dbg("[digitalRead]")
-                    return [2 /*return*/, _a.apply(void 0, [_b.sent()])];
+                    return [2 /*return*/, _a.apply(void 0, [(_b.sent()) || -1])];
                 }
             });
         });

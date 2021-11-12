@@ -11,6 +11,7 @@
 			"statusBar.background": "#38542d",
 		},
 		"cSpell.words": [
+			"abortable",
 			"colorcode",
 			"drawpix",
 			"eqeqeq",
@@ -21,11 +22,17 @@
 			"obniz",
 			"onbutton",
 			"ondata",
-			"onnotmatch",
+			"onhandle",
 			"onmethod",
+			"onnotmatch",
+			"onrequest",
+			"onrpc",
+			"onsuberror",
 			"opniz",
 			"pico",
-			"raspi"
+			"raspi",
+			"rpcs",
+			"stickc"
 		],
 	},
 }

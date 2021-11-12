@@ -1,6 +1,5 @@
 const { Opniz } = require("opniz")
 
-const address = "192.168.0.1"
 const port = 3000
 
 const HIGH = 1
@@ -11,17 +10,14 @@ const pin = 21
 
 const main = async () => {
 	// opnizインスタンス生成
-	const opniz = new Opniz.M5Atom({ address, port })
+	const opniz = new Opniz.M5Atom({ port })
 	
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) {
-		console.log("connect...")
-		await opniz.sleep(1000)
-	}
+	while (!(await opniz.connect())) console.log("connect...")
 	console.log("[connected]")
 	
 	try {
-		// 1秒おきにLEDを点滅
+		// 1秒おきに内蔵LEDを点滅
 		for (;;) {
 			value = value === LOW ? HIGH : LOW
 			await opniz.digitalWrite(pin, value)
@@ -30,7 +26,7 @@ const main = async () => {
 		
 	// エラー処理
 	} catch (e) {
-		console.log(`[error] ${e.message}`)
+		console.log("[error]", e.message)
 		await main()
 	}
 }

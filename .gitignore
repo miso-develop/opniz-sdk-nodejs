@@ -125,8 +125,15 @@ typings/
 # /temp/log
 
 # release
-/dist/**/main.*
-/docs/**/main.html
-/src/**/main.*
+/dist/*.*
+/docs/*.html
+/src/*.*
+!/dist/index.*
+!/docs/index.html
+!/src/index.*
+!/dist/utils.*
+!/docs/utils.html
+!/src/utils.*
+
 /temp
 /issue.md

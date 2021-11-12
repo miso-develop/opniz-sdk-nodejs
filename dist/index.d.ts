@@ -1,4 +1,4 @@
-import { BaseDevice } from "./devices/BaseDevice";
+import { BaseDevice } from "./devices/base/BaseDevice";
 import { Esp32 } from "./devices/Esp32";
 import { M5Atom } from "./devices/M5Atom";
 import * as utils from "./utils";
