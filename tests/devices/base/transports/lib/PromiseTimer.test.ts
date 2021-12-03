@@ -2,8 +2,8 @@ import { PromiseTimer, TimeoutError } from "../../../../../src/devices/base/tran
 import { env, getPort } from "../../../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../../src/utils"
 
-describe("PromiseTimer", () => {
-// describe.skip("PromiseTimer", () => {
+// describe("PromiseTimer", () => {
+describe.skip("PromiseTimer", () => {
 	
 	let promiseTimer: PromiseTimer
 	

@@ -1,11 +1,9 @@
 import { EventEmitter } from "events"
-import { Transport, RpcRequest, Protocol } from "./transports/Transport"
+import { Transport, RpcRequest, ConstructorParameter } from "./transports/Transport"
 import { TransportCreator } from "./transports/TransportCreator"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseTransport]", ...v)) // DEBUG:
-
-export { Transport, RpcRequest, Protocol } from "./transports/Transport"
 
 export class BaseTransport extends EventEmitter implements Transport {
 	protected _transport: Transport
@@ -21,14 +19,14 @@ export class BaseTransport extends EventEmitter implements Transport {
 	protected _onclose: (() => Promise<void>) = async (): Promise<void> => { await this.onclose() }
 	protected _onerror: ((error: Error) => Promise<void>) = async (error: Error): Promise<void> => { await this.onerror(error) }
 	
-	constructor({ address, port, serverPort, protocol }: { address?: string; port: number; serverPort?: number; protocol?: Protocol}) {
+	constructor({ address, port, id, serverPort, protocol }: ConstructorParameter) {
 		super()
 		
 		this.on("connect", this._onconnect)
 		this.on("close", this._onclose)
 		this.on("error", this._onerror)
 		
-		this._transport = TransportCreator.create({ address, port, serverPort, protocol })
+		this._transport = TransportCreator.create({ address, port, id, serverPort, protocol })
 		this._transport.onconnect = this._onconnect
 		this._transport.onclose = this._onclose
 		this._transport.onerror = this._onerror

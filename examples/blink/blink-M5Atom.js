@@ -1,15 +1,13 @@
 const { Opniz } = require("opniz")
 
 const port = 3000
+const opniz = new Opniz.M5Atom({ port }) // opnizインスタンス生成
 
 const OFF = "#000000"
 const GREEN = "#ff0000"
 let color = OFF
 
 const main = async () => {
-	// opnizインスタンス生成
-	const opniz = new Opniz.M5Atom({ port })
-	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) console.log("connect...")
 	console.log("[connected]")

@@ -9,26 +9,28 @@ describe("Opniz", () => {
 	const address = env.common.address
 	let port
 	let serverPort
+	let id = "test"
+	let protocol
 	
 	
-	beforeAll(async () => {
+	beforeEach(async () => {
 		port = await getPort()
 		serverPort = await getPort()
 	})
 	
 	test("BaseDevice", async () => {
 		class Device extends Opniz.BaseDevice {}
-		const device = new Device({ address, port, serverPort })
+		const device = new Device({ port })
 		expect(device).toBeInstanceOf(Opniz.BaseDevice)
 	})
 	
 	test("Esp32", async () => {
-		const device = new Opniz.Esp32({ address, port, serverPort })
+		const device = new Opniz.Esp32({ port })
 		expect(device).toBeInstanceOf(Opniz.Esp32)
 	})
 	
 	test("M5Atom", async () => {
-		const device = new Opniz.M5Atom({ address, port, serverPort })
+		const device = new Opniz.M5Atom({ port })
 		expect(device).toBeInstanceOf(Opniz.M5Atom)
 	})
 })

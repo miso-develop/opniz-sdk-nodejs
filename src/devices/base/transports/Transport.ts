@@ -24,3 +24,16 @@ export const Protocol = {
 	TCP: "TCP",
 }
 export type Protocol = typeof Protocol[keyof typeof Protocol]
+
+export type ConstructorParameter = {
+	address?: string
+	port: number
+	id?: string
+	serverPort?: number
+	protocol?: Protocol
+}
+
+export type DeviceConstructorParameter =
+{ address?: undefined;	port: number;	id?: undefined;	serverPort?: undefined;	protocol?: undefined } |	// WebSocketServer
+{ address: string;		port: number;	id?: string;	serverPort?: undefined;	protocol?: Protocol } |	// WebSocketClient
+{ address: string;		port: number;	id?: undefined;	serverPort?: number;	protocol?: Protocol }	// TCP

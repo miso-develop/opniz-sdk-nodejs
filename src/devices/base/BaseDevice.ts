@@ -1,10 +1,9 @@
-import { BaseRpcHandler, RpcRequest, Protocol } from "./BaseRpcHandler"
+import { BaseRpcHandler } from "./BaseRpcHandler"
+import { RpcRequest } from "./transports/Transport"
 import * as utils from "../../utils"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseDevice]", ...v)) // DEBUG:
-
-export { RpcRequest, Protocol } from "./BaseRpcHandler"
 
 export abstract class BaseDevice extends BaseRpcHandler {
 	

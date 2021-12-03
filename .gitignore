@@ -119,21 +119,17 @@ typings/
 
 
 
-# develop
-# /docs
+# [develop]
 # /dist
-# /temp/log
+# /docs
 
-# release
-/dist/*.*
+# [release]
 /docs/*.html
-/src/*.*
-!/dist/index.*
 !/docs/index.html
-!/src/index.*
-!/dist/utils.*
 !/docs/utils.html
+
+/src/*.*
+!/src/index.*
 !/src/utils.*
 
-/temp
-/issue.md
+/.temp

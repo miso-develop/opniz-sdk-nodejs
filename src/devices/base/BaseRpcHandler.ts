@@ -1,10 +1,9 @@
-import { BaseTransport, RpcRequest, Protocol } from "./BaseTransport"
+import { BaseTransport } from "./BaseTransport"
+import { RpcRequest, ConstructorParameter } from "./transports/Transport"
 import { RpcHandlerExtension } from "./RpcHandlerExtension"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseRpcHandler]", ...v)) // DEBUG:
-
-export { RpcRequest, Protocol } from "./BaseTransport"
 
 export class BaseRpcHandler extends BaseTransport {
 	public rpcHandler: RpcHandlerExtension = new RpcHandlerExtension()
@@ -18,8 +17,8 @@ export class BaseRpcHandler extends BaseTransport {
 		return JSON.stringify(rpcResponses)
 	}
 	
-	constructor({ address, port, serverPort, protocol }: { address?: string; port: number; serverPort?: number; protocol?: Protocol}) {
-		super({ address, port, serverPort, protocol })
+	constructor({ address, port, id, serverPort, protocol }: ConstructorParameter) {
+		super({ address, port, id, serverPort, protocol })
 		
 		this.on("rpcRequest", this._onrpcRequest)
 		this.on("notmatch", this._onnotmatch)

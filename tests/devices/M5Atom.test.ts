@@ -2,8 +2,8 @@ import { M5Atom } from "../../src/devices/M5Atom"
 import { env, getPort } from "../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../src/utils"
 
-describe("M5Atom", () => {
-// describe.skip("M5Atom", () => {
+// describe("M5Atom", () => {
+describe.skip("M5Atom", () => {
 	
 	let device: M5Atom
 	let deviceMock: M5Atom

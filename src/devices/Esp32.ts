@@ -1,10 +1,9 @@
 /* eslint @typescript-eslint/no-inferrable-types: "off" */
-import { BaseDevice, Protocol } from "./base/BaseDevice"
+import { BaseDevice } from "./base/BaseDevice"
+import { DeviceConstructorParameter } from "./base/transports/Transport"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
-
-export { RpcRequest, Protocol } from "./base/BaseDevice"
 
 export class Esp32 extends BaseDevice {
 	

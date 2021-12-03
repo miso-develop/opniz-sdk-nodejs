@@ -3,8 +3,6 @@ import { PromiseTcpClient } from "./PromiseTcpClient"
 import { PromiseTcpServer } from "./PromiseTcpServer"
 import { Transport, RpcRequest } from "../Transport"
 
-import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, CloseTimeoutError, NotConnectedError, ListenTimeoutError } from "../lib/TimeoutError"
-
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[TcpTransport]", ...v)) // DEBUG:
 
@@ -17,12 +15,12 @@ export class TcpTransport extends EventEmitter implements Transport {
 	public onerror: ((error: Error) => void | Promise<void>) = (error: Error): void | Promise<void> => {}
 	
 	public onrpcRequest: ((rpcRequests: RpcRequest[]) => void | Promise<void>) = (rpcRequests: RpcRequest[]): void | Promise<void> => {}
-	public onrpcHandler: ((rpcRequests: RpcRequest[]) => Promise<string>) = async (rpcRequests: RpcRequest[]): Promise<string> => {
+	public onrpcHandler: ((rpcRequests: RpcRequest[]) => string | Promise<string>) = async (rpcRequests: RpcRequest[]): Promise<string> => {
 		await this._onrpcRequest(rpcRequests)
 		return JSON.stringify(rpcRequests)
 	}
 	
-	public ondata: ((data: Buffer) => Promise<string>) = async (data: Buffer): Promise<string> => { return this._onrpcHandler(data) }
+	public ondata: ((data: Buffer) => string | Promise<string>) = async (data: Buffer): Promise<string> => { return this._onrpcHandler(data) }
 	
 	private _onconnect: (() => Promise<void>) = async (): Promise<void> => { await this.onconnect() }
 	private _onclose: (() => Promise<void>) = async (): Promise<void> => { await this.onclose() }
@@ -60,10 +58,6 @@ export class TcpTransport extends EventEmitter implements Transport {
 	
 	public async connect({ timeout }: { timeout?: number } = {}): Promise<boolean> {
 		try {
-			await this._server.listen()
-			
-			if (this.isConnected()) return true
-			
 			await this._client.connect({ timeout })
 			await this._onconnect()
 			return this.isConnected()
@@ -71,7 +65,7 @@ export class TcpTransport extends EventEmitter implements Transport {
 			await this._onerror(e)
 			// throw e
 			console.log("Opniz Error:", e.message)
-			await sleep(100)
+			await sleep(500)
 			return false
 		}
 	}
@@ -96,11 +90,7 @@ export class TcpTransport extends EventEmitter implements Transport {
 	
 	public async close(): Promise<void> {
 		try {
-			await Promise.all([
-				this._server.close(),
-				this._client.close(),
-			])
-			
+			await this._client.close()
 			await this._onclose()
 		} catch (e) {
 			// throw e

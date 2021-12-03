@@ -1,10 +1,9 @@
 /* eslint @typescript-eslint/no-inferrable-types: "off" */
-import { Esp32, Protocol } from "./Esp32"
+import { Esp32 } from "./Esp32"
+import { DeviceConstructorParameter } from "./base/transports/Transport"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
-
-export { RpcRequest, Protocol } from "./Esp32"
 
 export class M5Atom extends Esp32 {
 	
@@ -19,11 +18,10 @@ export class M5Atom extends Esp32 {
 	}
 	
 	// add onmethod event
-	// public onbutton: ((params: string[]) => void | Promise<void>) = (params: string[]): void | Promise<void> => {}
 	public onbutton: ((params?: string[]) => void | Promise<void>) = (params?: string[]): void | Promise<void> => {}
 	
-	constructor({ address, port, serverPort, protocol }: { address?: string; port: number; serverPort?: number; protocol?: Protocol }) {
-		super({ address, port, serverPort, protocol })
+	constructor({ address, port, id, serverPort, protocol }: DeviceConstructorParameter) {
+		super({ address, port, id, serverPort, protocol })
 		
 		// add rpc handler
 		this.rpcHandler.add({

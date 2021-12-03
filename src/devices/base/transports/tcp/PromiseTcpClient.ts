@@ -1,6 +1,6 @@
 import { EventEmitter } from "events"
 import net from "net"
-import { PromiseTimer, TimeoutOptions } from "../lib/PromiseTimer"
+import { PromiseTimer } from "../lib/PromiseTimer"
 import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, CloseTimeoutError, NotConnectedError, ListenTimeoutError } from "../lib/TimeoutError"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../utils" // DEBUG:
@@ -15,7 +15,7 @@ export class PromiseTcpClient extends EventEmitter {
 	private _address: string
 	private _port: number
 	
-	private _timer: PromiseTimer = new PromiseTimer()
+	private _promiseTimer: PromiseTimer = new PromiseTimer()
 	
 	public onerror: ((error: Error) => void) = (error: Error): void => {}
 	
@@ -24,48 +24,47 @@ export class PromiseTcpClient extends EventEmitter {
 		this._address = address
 		this._port = port
 		
-		this._timer.timeout = defaultTimeout
+		this._promiseTimer.timeout = defaultTimeout
 	}
 	
-	public connect({ timeout = connectionTimeout }: { timeout?: number} = {}): Promise<boolean> {
-		return this._timer.timer(new Promise<boolean>((resolve, reject) => {
+	public connect({ timeout = connectionTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
+		return this._promiseTimer.timer((resolve, reject) => {
 			if (this.isConnected()) resolve(true)
 			
 			this.socket = net.connect(this._port, this._address, () => resolve(true))
 			this.socket.on("error", this.onerror)
-		}), { error: new ConnectionTimeoutError(), timeout })
+		}, { error: new ConnectionTimeoutError(), timeout })
 	}
 	
-	public request(message: string, { timeout = this._timer.timeout }: TimeoutOptions = {}): Promise<string> {
-		return this._timer.timer(new Promise((resolve, reject) => {
+	public request(message: string, { timeout = this._promiseTimer.timeout }: PromiseTimer.TimeoutOptions = {}): Promise<string> {
+		return this._promiseTimer.timer((resolve, reject) => {
 			if (!this.isConnected()) reject(new NotConnectedError())
 			
 			// TODO: ackでレスポンス保証入れたい
 			this.socket.once("data", data => resolve(data.toString()))
-			this.socket.write(message, error => error && reject(error))
-		}), { error: new RequestTimeoutError(), timeout })
+			this.socket.write(message, (error?) => error && reject(error))
+		}, { error: new RequestTimeoutError(), timeout })
 	}
 	
-	public send(message: string, { timeout = this._timer.timeout }: { timeout?: number} = {}): Promise<void> {
-		return this._timer.timer(new Promise<void>((resolve, reject) => {
+	public send(message: string, { timeout = this._promiseTimer.timeout }: PromiseTimer.TimeoutOptions = {}): Promise<void> {
+		return this._promiseTimer.timer((resolve, reject) => {
 			if (!this.isConnected()) reject(new NotConnectedError())
 			
-			this.socket.write(message, error => error ? reject(error) : resolve())
-		}), { error: new RequestTimeoutError(), timeout })
+			this.socket.write(message, (error?) => error ? reject(error) : resolve())
+		}, { error: new RequestTimeoutError(), timeout })
 	}
 	
-	public async close({ timeout = this._timer.timeout }: { timeout?: number} = {}): Promise<void> {
-		return this._timer.timer(new Promise<void>((resolve, reject) => {
+	public async close({ timeout = this._promiseTimer.timeout }: PromiseTimer.TimeoutOptions = {}): Promise<void> {
+		return this._promiseTimer.timer((resolve, reject) => {
 			if (!this.isConnected() || !!this.socket?.destroyed) resolve()
 			
-			const onError = error => reject(error)
-			this.socket.once("error", onError)
+			this.socket.once("error", reject)
 			this.socket.once("close", () => {
-				this.socket.removeListener("error", onError)
+				this.socket.removeListener("error", reject)
 				resolve()
 			})
 			this.socket.destroy()
-		}), { error: new CloseTimeoutError(), timeout })
+		}, { error: new CloseTimeoutError(), timeout })
 	}
 	
 	public isConnected(): boolean {
@@ -73,6 +72,6 @@ export class PromiseTcpClient extends EventEmitter {
 	}
 	
 	public setTimeout(timeout: number): void {
-		this._timer.timeout = timeout
+		this._promiseTimer.timeout = timeout
 	}
 }

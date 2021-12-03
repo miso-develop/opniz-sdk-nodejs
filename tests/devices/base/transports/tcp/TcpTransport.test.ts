@@ -4,8 +4,8 @@ import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnected
 import { env, getPort } from "../../../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../../src/utils"
 
-describe("TcpTransport", () => {
-// describe.skip("TcpTransport", () => {
+// describe("TcpTransport", () => {
+describe.skip("TcpTransport", () => {
 	
 	let tcpTransport: TcpTransport
 	let tcpTransportMock: TcpTransportMock

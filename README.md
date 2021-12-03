@@ -60,11 +60,9 @@ const port = 3000 // 任意のポートを指定（opnizデバイスの指定と
 const { Opniz } = require("opniz")
 
 const port = 3000 // 任意のポートを指定（opnizデバイスの指定と合わせる）
+const opniz = new Opniz.Esp32({ port }) // opnizインスタンス生成
 
 const main = async () => {
-	// opnizインスタンス生成
-	const opniz = new Opniz.Esp32({ port })
-	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) console.log("connect...")
 	console.log("[connected]")
@@ -106,15 +104,13 @@ M5ATOM（Lite、Matrixどちらでもかまいません）でLチカを行って
 const { Opniz } = require("opniz")
 
 const port = 3000 // 任意のポートを指定（opnizデバイスでの指定と合わせる）
+const opniz = new Opniz.M5Atom({ port }) // opnizインスタンス生成
 
 const OFF = "#000000"
 const GREEN = "#ff0000"
 let color = OFF
 
 const main = async () => {
-	// opnizインスタンス生成
-	const opniz = new Opniz.M5Atom({ port })
-	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) console.log("connect...")
 	console.log("[connected]")
@@ -150,15 +146,13 @@ M5ATOM Lite、Matrixの場合、21番ピンとGNDにLEDを挿します（必要�
 const { Opniz } = require("opniz")
 
 const port = 3000 // 任意のポートを指定（opnizデバイスでの指定と合わせる）
+const opniz = new Opniz.M5Atom({ port }) // opnizインスタンス生成
 
 const HIGH = 1
 const LOW = 0
 let value = LOW
 
 const main = async () => {
-	// opnizインスタンス生成
-	const opniz = new Opniz.M5Atom({ port })
-	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) console.log("connect...")
 	console.log("[connected]")
@@ -190,11 +184,9 @@ main()
 const { Opniz } = require("opniz")
 
 const port = 3000 // 任意のポートを指定（opnizデバイスでの指定と合わせる）
+const opniz = new Opniz.M5Atom({ port }) // opnizインスタンス生成
 
 const main = async () => {
-	// opnizインスタンス生成
-	const opniz = new Opniz.M5Atom({ port })
-	
 	// opnizデバイスへ接続
 	while (!(await opniz.connect())) console.log("connect...")
 	console.log("[connected]")
@@ -239,10 +231,27 @@ opniz Arduinoライブラリでは以下の通信プロトコルを実装して�
 |プロトコル|コンストラクタパラメータ|パラメータ内容|
 |---|---|---|
 |WebSocket (Server)|`Opniz.Esp32({ port })`|`port`: listenするポート番号を指定します|
-|WebSocket (Client)|`Opniz.Esp32({ address, port, protocol: "WebSocketClient" })`|`address`: 接続先のopnizのIPアドレスまたはhostnameを指定します<br>`port`: 接続先のopnizのWebSocket Serverポート番号を指定します<br>`protocol`: "WebSocketClient"プロトコルを指定します|
-|TCP (Server/Client同居)|`Opniz.Esp32({ address, port, serverPort?, protocol: "TCP" })`|`address`: 接続先のopnizのIPアドレスを指定します<br>`port`: 接続先のopnizのTCP Serverポート番号を指定します<br>`serverPort`: listenするポート番号を指定します（省略可能で、省略時は`port`と同じ値となります）<br>`protocol`: "TCP"を指定します|
+|WebSocket (Client)|`Opniz.Esp32({ address, port, id?, protocol?: "WebSocketClient" })`|`address`: 接続先のopnizのIPアドレスまたはhostnameを指定します<br>`port`: 接続先のopnizのWebSocket Serverポート番号を指定します<br>`id`: [opniz Server](https://github.com/miso-develop/opniz-server)を経由してopnizデバイスと接続する場合に、opnizデバイスで指定した`id`と同じ値を指定します（省略可）<br>`protocol`: "WebSocketClient"プロトコルを指定します（`id`が指定されている場合は省略可能です）|
+|TCP (Server/Client同居)|`Opniz.Esp32({ address, port, serverPort?, protocol?: "TCP" })`|`address`: 接続先のopnizのIPアドレスを指定します<br>`port`: 接続先のopnizのTCP Serverポート番号を指定します<br>`serverPort`: listenするポート番号を指定します（省略可能で、省略時は`port`と同じ値となります）<br>`protocol`: "TCP"を指定します（`serverPort`が指定されている場合は省略可能です）|
 
 またNode.js SDK同士の接続も可能です。  
+
+
+
+## ドキュメント
+
+[TypeDoc](https://miso-develop.github.io/opniz-sdk-nodejs/)
+
+
+
+## 関連リポジトリ
+
+* [opniz Arduino Library for M5ATOM](https://github.com/miso-develop/opniz-arduino-m5atom)
+	* M5ATOM向けArduinoライブラリ
+* [opniz Arduino Library for ESP32](https://github.com/miso-develop/opniz-arduino-esp32)
+	* ESP32向けArduinoライブラリ
+* [opniz Server](https://github.com/miso-develop/opniz-server)
+	* opniz Node.js SDKやopnizデバイスからのJSON RPCメッセージを中継するWebSocketサーバ
 
 
 

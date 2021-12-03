@@ -99,11 +99,17 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onrequest" class="tsd-kind-icon">_onrequest</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onclose" class="tsd-kind-icon">_onclose</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onconnect" class="tsd-kind-icon">_onconnect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onerror" class="tsd-kind-icon">_onerror</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onrequest" class="tsd-kind-icon">_onrequest</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_port" class="tsd-kind-icon">_port</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_promisetimer" class="tsd-kind-icon">_promise<wbr>Timer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_server" class="tsd-kind-icon">_server</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_socket" class="tsd-kind-icon">_socket</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_timer" class="tsd-kind-icon">_timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onclose" class="tsd-kind-icon">onclose</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onconnect" class="tsd-kind-icon">onconnect</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onerror" class="tsd-kind-icon">onerror</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onrequest" class="tsd-kind-icon">onrequest</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#capturerejectionsymbol" class="tsd-kind-icon">capture<wbr>Rejection<wbr>Symbol</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static tsd-is-external"><a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#capturerejections" class="tsd-kind-icon">capture<wbr>Rejections</a></li>
@@ -157,7 +163,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L22">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L34">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -178,13 +184,94 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_onclose" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _onclose</h3>
+					<div class="tsd-signature tsd-kind-icon">_onclose<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L29">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_onconnect" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _onconnect</h3>
+					<div class="tsd-signature tsd-kind-icon">_onconnect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L28">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:28</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_onerror" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _onerror</h3>
+					<div class="tsd-signature tsd-kind-icon">_onerror<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L30">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>error: <span class="tsd-signature-type">Error</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_onrequest" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _onrequest</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _onrequest</h3>
 					<div class="tsd-signature tsd-kind-icon">_onrequest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L22">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L34">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -215,47 +302,47 @@
 					<div class="tsd-signature tsd-kind-icon">_port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L17">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L19">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_promisetimer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _promise<wbr>Timer</h3>
+					<div class="tsd-signature tsd-kind-icon">_promise<wbr>Timer<span class="tsd-signature-symbol">:</span> <a href="devices_base_transports_lib_promisetimer.promisetimer-1.html" class="tsd-signature-type" data-tsd-kind="Class">PromiseTimer</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L21">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_server" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _server</h3>
-					<div class="tsd-signature tsd-kind-icon">_server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Server</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_server<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Server</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L14">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L16">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_socket" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _socket</h3>
-					<div class="tsd-signature tsd-kind-icon">_socket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Socket</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_socket<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Socket</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">DefaultEventsMap</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L15">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:15</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_timer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _timer</h3>
-					<div class="tsd-signature tsd-kind-icon">_timer<span class="tsd-signature-symbol">:</span> <a href="devices_base_transports_lib_promisetimer.promisetimer.html" class="tsd-signature-type" data-tsd-kind="Class">PromiseTimer</a><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L19">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L17">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="onrequest" class="tsd-anchor"></a>
-					<h3>onrequest</h3>
-					<div class="tsd-signature tsd-kind-icon">onrequest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<a name="onclose" class="tsd-anchor"></a>
+					<h3>onclose</h3>
+					<div class="tsd-signature tsd-kind-icon">onclose<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L21">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L24">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -263,7 +350,88 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="onconnect" class="tsd-anchor"></a>
+					<h3>onconnect</h3>
+					<div class="tsd-signature tsd-kind-icon">onconnect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L23">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:23</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="onerror" class="tsd-anchor"></a>
+					<h3>onerror</h3>
+					<div class="tsd-signature tsd-kind-icon">onerror<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L25">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>error<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Error</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>error: <span class="tsd-signature-type">Error</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="onrequest" class="tsd-anchor"></a>
+					<h3>onrequest</h3>
+					<div class="tsd-signature tsd-kind-icon">onrequest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L26">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
@@ -273,7 +441,7 @@
 												<h5>message: <span class="tsd-signature-type">string</span></h5>
 											</li>
 										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 									</li>
 								</ul>
 							</li>
@@ -352,7 +520,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L31">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L49">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -414,24 +582,19 @@
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L88">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L109">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
+									<h5>__namedParameters: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -442,24 +605,19 @@
 					<a name="connect" class="tsd-anchor"></a>
 					<h3>connect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">connect<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L38">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L58">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
+									<h5>__namedParameters: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -539,7 +697,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L105">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L123">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:123</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -916,13 +1074,13 @@
 					<a name="request" class="tsd-anchor"></a>
 					<h3>request</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">request<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">request<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L60">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L85">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -931,12 +1089,7 @@
 									<h5>message: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
+									<h5>__namedParameters: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -947,13 +1100,13 @@
 					<a name="send" class="tsd-anchor"></a>
 					<h3>send</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">send<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">send<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, __namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L74">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L97">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -962,12 +1115,7 @@
 									<h5>message: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-symbol">{ </span>timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeout<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
+									<h5>__namedParameters: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>error<span class="tsd-signature-symbol">: </span><a href="devices_base_transports_lib_timeouterror.timeouterror.html" class="tsd-signature-type" data-tsd-kind="Class">TimeoutError</a><span class="tsd-signature-symbol">; </span>timeout<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1008,7 +1156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L109">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/base/transports/webSocket/PromiseWebSocketServer.ts#L127">src/devices/base/transports/webSocket/PromiseWebSocketServer.ts:127</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1205,11 +1353,23 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onclose" class="tsd-kind-icon">_onclose</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onconnect" class="tsd-kind-icon">_onconnect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onerror" class="tsd-kind-icon">_onerror</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_onrequest" class="tsd-kind-icon">_onrequest</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_port" class="tsd-kind-icon">_port</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_promisetimer" class="tsd-kind-icon">_promise<wbr>Timer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_server" class="tsd-kind-icon">_server</a>
@@ -1217,8 +1377,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_socket" class="tsd-kind-icon">_socket</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#_timer" class="tsd-kind-icon">_timer</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onclose" class="tsd-kind-icon">onclose</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onconnect" class="tsd-kind-icon">onconnect</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onerror" class="tsd-kind-icon">onerror</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="devices_base_transports_websocket_promisewebsocketserver.promisewebsocketserver.html#onrequest" class="tsd-kind-icon">onrequest</a>
@@ -1324,15 +1490,16 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
@@ -1340,6 +1507,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 			</ul>
 		</div>
 	</div>

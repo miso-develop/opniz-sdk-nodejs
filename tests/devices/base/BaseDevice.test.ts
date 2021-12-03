@@ -7,8 +7,8 @@ class Device extends BaseDevice {
 	protected _name = "device"
 }
 
-describe("Device(BaseDevice)", () => {
-// describe.skip("Device(BaseDevice)", () => {
+// describe("Device(BaseDevice)", () => {
+describe.skip("Device(BaseDevice)", () => {
 	
 	let device: Device
 	let deviceMock: Device

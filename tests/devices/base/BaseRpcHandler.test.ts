@@ -2,7 +2,8 @@ import { BaseRpcHandler, RpcHandler, RpcRequest } from "../../../src/devices/bas
 import { env, getPort } from "../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../src/utils"
 
-describe("BaseRpcHandler", () => {
+// describe("BaseRpcHandler", () => {
+describe.skip("BaseRpcHandler", () => {
 	
 	let baseRpcHandler: BaseRpcHandler
 	

@@ -2,7 +2,8 @@ import { RpcHandlerExtension, RpcHandler, RpcRequest } from "../../../src/device
 import { env, getPort } from "../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../src/utils"
 
-describe("RpcHandlerExtension", () => {
+// describe("RpcHandlerExtension", () => {
+describe.skip("RpcHandlerExtension", () => {
 	
 	let rpcHandlerExtension: RpcHandlerExtension
 	

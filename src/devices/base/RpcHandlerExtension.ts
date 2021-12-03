@@ -3,8 +3,6 @@ import { RpcRequest } from "./transports/Transport"
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[RpcHandlerExtension]", ...v)) // DEBUG:
 
-export { RpcRequest } from "./transports/Transport"
-
 export interface RpcHandler {
 	name: string
 	procedure: (...params: any[]) => string | Promise<string>

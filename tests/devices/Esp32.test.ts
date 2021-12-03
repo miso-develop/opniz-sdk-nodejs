@@ -3,8 +3,8 @@ import { BaseTransportMock } from "./base/BaseTransportMock"
 import { env, getPort } from "../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../src/utils"
 
-describe("Esp32", () => {
-// describe.skip("Esp32", () => {
+// describe("Esp32", () => {
+describe.skip("Esp32", () => {
 	
 	let device: Esp32
 	let deviceMock: Esp32

@@ -3,8 +3,8 @@ import { PromiseTcpClientMock } from "./PromiseTcpClientMock"
 import { env, getPort } from "../../../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../../src/utils"
 
-describe("PromiseTcpServer", () => {
-// describe.skip("PromiseTcpServer", () => {
+// describe("PromiseTcpServer", () => {
+describe.skip("PromiseTcpServer", () => {
 	
 	let tcpServer: PromiseTcpServer
 	let clientMock: PromiseTcpClientMock
