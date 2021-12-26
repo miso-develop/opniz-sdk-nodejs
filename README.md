@@ -211,6 +211,46 @@ main()
 
 
 
+## API
+
+#### analogRead(pin: number): Promise\<number\>
+
+`pin`に指定したピンからアナログ値を読み取ります。  
+
+#### dacWrite(pin: number, value: number): Promise\<boolean\>
+
+`pin`に指定したピンから`value`に指定した値をDAC（Digital Analog Converter）出力します。  
+
+#### digitalRead(pin: number): Promise\<number\>
+
+`pin`に指定したピンからデジタル値（0 or 1）を読み取ります。  
+
+#### digitalWrite(pin: number, val: number): Promise\<boolean\>
+
+`pin`に指定したピンから`value`に指定したデジタル値（0 or 1）を出力します。  
+
+#### ledcWrite(pin: number, duty: number, channel: number, freq: number, resolutionBits: number): Promise\<boolean\>
+
+`pin`に指定したピンからPWM出力します。  
+
+#### restart(): Promise\<boolean\>
+
+デバイスを再起動します。  
+
+### M5ATOM
+
+現在[M5ATOM Arduinoライブラリ](https://github.com/m5stack/M5Atom)の[`dis`](https://github.com/m5stack/M5Atom/blob/master/src/utility/LED_DisPlay.h)、[`Btn`](https://github.com/m5stack/M5Atom/blob/master/src/utility/Button.h)メソッドを大体実装しています。  
+
+
+
+## ドキュメント
+
+[**TypeDoc**](https://miso-develop.github.io/opniz-sdk-nodejs/)  
+
+* [Class M5Atom](https://miso-develop.github.io/opniz-sdk-nodejs/classes/devices_m5atom.m5atom.html)
+* [Class Esp32](https://miso-develop.github.io/opniz-sdk-nodejs/classes/devices_esp32.esp32.html)
+
+
 ## 利用可能な通信プロトコル
 
 opniz Node.js SDKでは以下の通信プロトコルを実装しています。  
@@ -235,12 +275,6 @@ opniz Arduinoライブラリでは以下の通信プロトコルを実装して�
 |TCP (Server/Client同居)|`Opniz.Esp32({ address, port, serverPort?, protocol?: "TCP" })`|`address`: 接続先のopnizのIPアドレスを指定します<br>`port`: 接続先のopnizのTCP Serverポート番号を指定します<br>`serverPort`: listenするポート番号を指定します（省略可能で、省略時は`port`と同じ値となります）<br>`protocol`: "TCP"を指定します（`serverPort`が指定されている場合は省略可能です）|
 
 またNode.js SDK同士の接続も可能です。  
-
-
-
-## ドキュメント
-
-[TypeDoc](https://miso-develop.github.io/opniz-sdk-nodejs/)
 
 
 
