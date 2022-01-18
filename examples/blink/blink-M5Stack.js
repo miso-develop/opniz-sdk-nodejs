@@ -7,7 +7,7 @@ const HIGH = 1
 const LOW = 0
 let value = LOW
 
-const pin = 21
+const pin = 19
 
 const main = async () => {
 	// opnizデバイスへ接続
@@ -15,7 +15,7 @@ const main = async () => {
 	console.log("[connected]")
 	
 	try {
-		// 1秒おきに内蔵LEDを点滅
+		// 1秒おきにLEDを点滅
 		for (;;) {
 			value = value === LOW ? HIGH : LOW
 			await opniz.digitalWrite(pin, value)
