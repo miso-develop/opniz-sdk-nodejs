@@ -58,7 +58,7 @@
 		"test:watch": "npm test -- --watch",
 		"tw": "npm run test:watch",
 		"predoc": "npx rimraf docs",
-		"doc": "npx typedoc src --out docs --readme none --exclude \"./src/**/example.ts\" --gitRevision main --disableOutputCheck ",
+		"doc": "npx typedoc src --out docs --readme none --exclude \"./src/**/example.ts\" --gitRevision main",
 		"open:coverage": "npx opener chrome ./coverage/lcov-report/index.html",
 		"oc": "npm run open:coverage",
 		"open:doc": "npx opener chrome ./docs/index.html",
@@ -100,7 +100,7 @@
 		"rimraf": "^3.0.2",
 		"source-map-support": "^0.5.20",
 		"ts-jest": "^27.0.7",
-		"typedoc": "^0.20.31",
+		"typedoc": "^0.22.11",
 		"typescript": "^4.2.3"
 	}
 }
