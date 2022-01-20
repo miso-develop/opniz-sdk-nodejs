@@ -2,7 +2,7 @@
 
 ![logo](./extras/images/logo.png)
 
-`❗ このプロジェクトは現在アルファ版です。`
+> ❗ このプロジェクトは現在アルファ版です。
 
 opnizとはM5StackといったESP32デバイスをNode.jsからobnizライクに遠隔制御するための、**Node.js SDK**および**Arduinoライブラリ**です。  
 しくみとしてはESP32デバイスおよびNode.js SDK間にて**JSON形式のRPCメッセージ**をやりとりし、相互に定義されたメソッドを呼び合います。  
@@ -30,13 +30,12 @@ M5ATOMクラスで**M5Stack、M5StickC、M5ATOM Lite、M5ATOM Matrixでの動作
 npm install opniz
 ```
 
-※別途デバイスへもopniz Arduinoライブラリ（[M5ATOM向け](https://github.com/miso-develop/opniz-arduino-m5atom)もしくは[ESP32向け](https://github.com/miso-develop/opniz-arduino-esp32)）を使用したスケッチの書き込みが必要です。  
-
 
 
 ## 使い方
 
-❗ 事前にデバイスへopniz Arduinoライブラリ（[M5ATOM向け](https://github.com/miso-develop/opniz-arduino-m5atom)もしくは[ESP32向け](https://github.com/miso-develop/opniz-arduino-esp32)）を書き込んでください  
+> ❗ 事前にデバイスへopniz Arduinoライブラリ（[M5ATOM向け](https://github.com/miso-develop/opniz-arduino-m5atom)もしくは[ESP32向け](https://github.com/miso-develop/opniz-arduino-esp32)）を書き込んでください。  
+> **[opniz CLI (npm)](https://github.com/miso-develop/opniz-cli)** を使用するとかんたんにデバイス書き込みできます。  
 
 以下のコードは最小限のopnizのJavaScript実装コードです。  
 opnizインスタンスの生成、opnizデバイスへの接続、デバイスへの操作の3ステップを実行しています。  
@@ -87,7 +86,7 @@ main()
 
 ## 実装例
 
-❗ 事前にM5ATOMへ[opniz Arduinoライブラリ（M5ATOM向け）](https://github.com/miso-develop/opniz-arduino-m5atom)を書き込んでください  
+> ❗ 事前にM5ATOMへ[opniz Arduinoライブラリ（M5ATOM向け）](https://github.com/miso-develop/opniz-arduino-m5atom)を書き込んでください  
 
 ### M5ATOMでLチカ（内蔵LED）
 
@@ -284,6 +283,8 @@ opniz Arduinoライブラリでは以下の通信プロトコルを実装して�
 	* M5ATOM向けArduinoライブラリ
 * [opniz Arduino Library for ESP32](https://github.com/miso-develop/opniz-arduino-esp32)
 	* ESP32向けArduinoライブラリ
+* [opniz CLI](https://github.com/miso-develop/opniz-cli)
+	* opniz Arduino LibraryのBasicスケッチをコマンドから簡単に書き込めるCLIツール
 * [opniz Server](https://github.com/miso-develop/opniz-server)
 	* opniz Node.js SDKやopnizデバイスからのJSON RPCメッセージを中継するWebSocketサーバ
 
