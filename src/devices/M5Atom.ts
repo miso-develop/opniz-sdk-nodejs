@@ -52,7 +52,7 @@ export class M5Atom extends Esp32 {
 	
 }
 
-class Dis {
+export class Dis {
 	private opniz: Esp32
 	
 	constructor(opniz: Esp32) {
@@ -81,7 +81,7 @@ class Dis {
 	}
 }
 
-class Btn {
+export class Btn {
 	private opniz: Esp32
 	
 	constructor(opniz: Esp32) {
@@ -125,7 +125,7 @@ class Btn {
 	}
 }
 
-class Imu {
+export class Imu {
 	private opniz: Esp32
 	
 	constructor(opniz: Esp32) {

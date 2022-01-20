@@ -10,14 +10,14 @@ export declare class M5Atom extends Esp32 {
     begin(SerialEnable?: boolean, I2CEnable?: boolean, DisplayEnable?: boolean): Promise<boolean>;
     update(): Promise<boolean>;
 }
-declare class Dis {
+export declare class Dis {
     private opniz;
     constructor(opniz: Esp32);
     setBrightness(brightness: number): Promise<boolean>;
     drawpix(Number: number, Color: string): Promise<boolean>;
     clear(): Promise<boolean>;
 }
-declare class Btn {
+export declare class Btn {
     private opniz;
     constructor(opniz: Esp32);
     read(): Promise<number>;
@@ -30,10 +30,9 @@ declare class Btn {
     wasReleasefor(ms: number): Promise<number>;
     lastChange(): Promise<number>;
 }
-declare class Imu {
+export declare class Imu {
     private opniz;
     constructor(opniz: Esp32);
     init(): Promise<number>;
     getAccelAdc(): Promise<number[]>;
 }
-export {};

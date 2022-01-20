@@ -58,7 +58,7 @@
 		"test:watch": "npm test -- --watch",
 		"tw": "npm run test:watch",
 		"predoc": "npx rimraf docs",
-		"doc": "npx typedoc src --out docs --readme none --exclude \"./src/**/example.ts\" --gitRevision main",
+		"doc": "npx typedoc src --out docs --readme none --exclude \"./src/**/example.ts\" --gitRevision main --entryPointStrategy expand",
 		"open:coverage": "npx opener chrome ./coverage/lcov-report/index.html",
 		"oc": "npm run open:coverage",
 		"open:doc": "npx opener chrome ./docs/index.html",

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.M5Atom = void 0;
+exports.Imu = exports.Btn = exports.Dis = exports.M5Atom = void 0;
 /* eslint @typescript-eslint/no-inferrable-types: "off" */
 const Esp32_1 = require("./Esp32");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
@@ -88,6 +88,7 @@ class Dis {
         });
     }
 }
+exports.Dis = Dis;
 class Btn {
     constructor(opniz) {
         this.opniz = opniz;
@@ -138,6 +139,7 @@ class Btn {
         });
     }
 }
+exports.Btn = Btn;
 class Imu {
     constructor(opniz) {
         this.opniz = opniz;
@@ -153,3 +155,4 @@ class Imu {
         });
     }
 }
+exports.Imu = Imu;
