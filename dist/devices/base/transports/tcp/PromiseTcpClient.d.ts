@@ -12,7 +12,7 @@ export declare class PromiseTcpClient extends EventEmitter {
         address: string;
         port: number;
     });
-    connect({ timeout }?: PromiseTimer.TimeoutOptions): Promise<boolean>;
+    connectWait({ timeout }?: PromiseTimer.TimeoutOptions): Promise<boolean>;
     request(message: string, { timeout }?: PromiseTimer.TimeoutOptions): Promise<string>;
     send(message: string, { timeout }?: PromiseTimer.TimeoutOptions): Promise<void>;
     close({ timeout }?: PromiseTimer.TimeoutOptions): Promise<void>;

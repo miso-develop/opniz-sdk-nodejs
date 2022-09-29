@@ -7,7 +7,7 @@ import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generate
 // const dbg = (...v) => console.log(chalk.black.bgBlueBright(getDateStr(), "[PromiseWebSocketClient]", ...v)) // DEBUG:
 
 const defaultTimeout = 5000
-const connectionTimeout = 10000
+const connectTimeout = 10000
 const closeTimeout = 10000
 
 export class PromiseWebSocketClient extends EventEmitter {
@@ -29,6 +29,7 @@ export class PromiseWebSocketClient extends EventEmitter {
 	protected _onerror: ((error: Error) => Promise<void>) = async (error: Error): Promise<void> => {
 		await this.onerror(error)
 		await this.close()
+		this._connect(this._address, this._port, this._id)
 	}
 	protected _onrequest: ((message: string) => Promise<string>) = async (message: string): Promise<string> => { return await this.onrequest(message) }
 	
@@ -43,41 +44,38 @@ export class PromiseWebSocketClient extends EventEmitter {
 		this.on("connect", this._onconnect)
 		this.on("close", this._onclose)
 		this.on("error", this._onerror)
+		
+		this._connect(this._address, this._port, this._id)
 	}
 	
-	public connect({ timeout = connectionTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
-		return this._promiseTimer.timer((resolve, reject) => {
-			if (this.isConnected()) resolve(true)
+	private _connect(address: string, port: number, id = "___default___"): void {
+		const uri = `ws://${address}:${port}`
+		this._socket = io(uri, {
+			query: { opnizId: id },
+			timeout: connectTimeout,
+		})
+		
+		this._socket.once("connect", () => {
+			this.emit("connect")
 			
-			const uri = `ws://${this._address}:${this._port}`
-			this._socket = io(uri, {
-				query: { opnizId: this._id },
-				timeout: connectionTimeout,
+			this._socket.once("error", async (error: Error) => await this._onerror(error))
+			this._socket.once("disconnect", async (reason: Socket.DisconnectReason) => await this._onerror(new Error(reason)))
+			this._socket.on("request", async (message: string, callback) => {
+				const request = typeof message === "string" ? message : JSON.stringify(message)
+				await callback(await this._onrequest(request))
 			})
-			
-			const onDisconnectError = (reason) => reject(new Error(reason))
-			this._socket.once("disconnect", onDisconnectError)
-			this._socket.once("connect_error", reject)
-			this._socket.once("connect", () => {
-				
-				this._socket.on("request", async (message: string, callback) => {
-					const request = typeof message === "string" ? message : JSON.stringify(message)
-					await callback(await this._onrequest(request))
-				})
-				
-				this._socket.on("error", async (error: Error) => {
-					await this._onerror(error)
-				})
-				
-				this._socket.on("disconnect", async (reason) => {
-					await this._onerror(new Error(reason))
-				})
-				
-				this._socket.removeListener("disconnect", onDisconnectError)
-				this._socket.removeListener("connect_error", reject)
-				resolve(true)
-			})
-		}, { error: new ConnectionTimeoutError(), timeout })
+		})
+	}
+	
+	public async connectWait({ timeout = connectTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
+		let rejected = false
+		return this._promiseTimer.timer<boolean>(async (resolve, reject) => {
+			while (!this.isConnected() && !rejected) { await sleep(100) }
+			resolve(true)
+		}, {
+			callback: (result : PromiseTimer.PromiseResult) => rejected = result === "reject",
+			error: new ConnectionTimeoutError(), timeout,
+		})
 	}
 	
 	public request(message: string, { timeout = this._promiseTimer.timeout }: PromiseTimer.TimeoutOptions = {}): Promise<string> {
@@ -114,6 +112,8 @@ export class PromiseWebSocketClient extends EventEmitter {
 				resolve()
 			})
 			this._socket.disconnect()
+			
+			this.emit("close")
 		}, { error: new CloseTimeoutError(), timeout })
 	}
 	

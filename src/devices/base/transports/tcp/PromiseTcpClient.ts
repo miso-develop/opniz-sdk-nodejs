@@ -27,7 +27,7 @@ export class PromiseTcpClient extends EventEmitter {
 		this._promiseTimer.timeout = defaultTimeout
 	}
 	
-	public connect({ timeout = connectionTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
+	public connectWait({ timeout = connectionTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
 		return this._promiseTimer.timer((resolve, reject) => {
 			if (this.isConnected()) resolve(true)
 			

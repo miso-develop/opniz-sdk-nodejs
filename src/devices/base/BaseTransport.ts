@@ -33,7 +33,7 @@ export abstract class BaseTransport extends EventEmitter implements Transport {
 		this._transport.onerror = this._onerror
 	}
 	
-	public async connect({ timeout }: { timeout?: number } = {}): Promise<boolean> { return await this._transport.connect({ timeout }) }
+	public async connectWait({ timeout }: { timeout?: number } = {}): Promise<boolean> { return await this._transport.connectWait({ timeout }) }
 	public async request(message: string): Promise<string> { return await this._transport.request(message) }
 	public async send(message: string): Promise<void> { return await this._transport.send(message) }
 	public async close(): Promise<void> { await this._transport.close() }

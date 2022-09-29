@@ -21,7 +21,7 @@ export declare class TcpTransport extends EventEmitter implements Transport {
         port: number;
         serverPort?: number;
     });
-    connect({ timeout }?: {
+    connectWait({ timeout }?: {
         timeout?: number;
     }): Promise<boolean>;
     request(message: string): Promise<string>;

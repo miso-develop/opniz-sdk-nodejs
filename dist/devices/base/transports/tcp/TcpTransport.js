@@ -18,6 +18,7 @@ const utils_1 = require("../../../../utils"); // DEBUG:
 class TcpTransport extends events_1.EventEmitter {
     constructor({ address, port, serverPort = port }) {
         super();
+        // TODO: Promise側にもっていきたい
         this.onconnect = () => { };
         this.onclose = () => { };
         this.onerror = (error) => { };
@@ -27,6 +28,7 @@ class TcpTransport extends events_1.EventEmitter {
             return JSON.stringify(rpcRequests);
         });
         this.ondata = (data) => __awaiter(this, void 0, void 0, function* () { return this._onrpcHandler(data); });
+        // TODO: Promise側にもっていきたい
         this._onconnect = () => __awaiter(this, void 0, void 0, function* () { yield this.onconnect(); });
         this._onclose = () => __awaiter(this, void 0, void 0, function* () { yield this.onclose(); });
         this._onerror = (error) => __awaiter(this, void 0, void 0, function* () {
@@ -53,11 +55,11 @@ class TcpTransport extends events_1.EventEmitter {
         this._server.onerror = this._onsuberror;
         this._server.ondata = this.ondata;
     }
-    connect({ timeout } = {}) {
+    connectWait({ timeout } = {}) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield this._client.connect({ timeout });
-                yield this._onconnect();
+                yield this._client.connectWait({ timeout });
+                yield this._onconnect(); // TODO: Promise側にもっていきたい
                 return this.isConnected();
             }
             catch (e) {
@@ -95,7 +97,7 @@ class TcpTransport extends events_1.EventEmitter {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield this._client.close();
-                yield this._onclose();
+                yield this._onclose(); // TODO: Promise側にもっていきたい
             }
             catch (e) {
                 // throw e

@@ -53,33 +53,33 @@ export class PromiseWebSocketServer extends EventEmitter {
 			pingTimeout,
 			pingInterval,
 		})
+		
+		this._server.on("error", async (error: Error) => await this._onerror(error))
+		
+		this._server.on("connection", (socket: Socket) => {
+			this.emit("connect")
+			
+			this._socket = socket
+			this._socket.on("error", async (error: Error) => await this._onerror(error))
+			this._socket.on("disconnect", async (reason) => {
+				await this._onerror(new Error(reason))
+			})
+			this._socket.on("request", async (message: string, callback) => {
+				const request = typeof message === "string" ? message : JSON.stringify(message)
+				await callback(await this._onrequest(request))
+			})
+		})
 	}
 	
-	public async connect({ timeout = connectTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
-		return this._promiseTimer.timer((resolve, reject) => {
-			if (this.isConnected()) resolve(true)
-		
-			this._server.once("error", reject)
-			this._server.once("connection", (socket: Socket) => {
-				this._socket = socket
-				
-				this._socket.on("request", async (message: string, callback) => {
-					const request = typeof message === "string" ? message : JSON.stringify(message)
-					await callback(await this._onrequest(request))
-				})
-				
-				this._socket.on("error", async (error: Error) => {
-					await this._onerror(error)
-				})
-				
-				this._socket.on("disconnect", async (reason) => {
-					await this._onerror(new Error(reason))
-				})
-				
-				this._server.removeListener("error", reject)
-				resolve(true)
-			})
-		}, { error: new ConnectionTimeoutError(), timeout })
+	public async connectWait({ timeout = connectTimeout }: PromiseTimer.TimeoutOptions = {}): Promise<boolean> {
+		let rejected = false
+		return this._promiseTimer.timer<boolean>(async (resolve, reject) => {
+			while (!this.isConnected() && !rejected) { await sleep(100) }
+			resolve(true)
+		}, {
+			callback: (result: PromiseTimer.PromiseResult) => rejected = result === "reject",
+			error: new ConnectionTimeoutError(), timeout,
+		})
 	}
 	
 	public request(message: string, { timeout = this._promiseTimer.timeout }: PromiseTimer.TimeoutOptions = {}): Promise<string> {
@@ -117,6 +117,8 @@ export class PromiseWebSocketServer extends EventEmitter {
 			})
 			
 			this._socket.disconnect(true)
+			
+			this.emit("close")
 		}, { error: new CloseTimeoutError(), timeout })
 	}
 	

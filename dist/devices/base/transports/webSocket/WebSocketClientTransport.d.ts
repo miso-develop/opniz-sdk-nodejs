@@ -11,7 +11,7 @@ export declare class WebSocketClientTransport extends PromiseWebSocketClient imp
         port: number;
         id?: string;
     });
-    connect({ timeout }?: {
+    connectWait({ timeout }?: {
         timeout?: number;
     }): Promise<boolean>;
     request(message: string): Promise<string>;

@@ -12,7 +12,7 @@ export declare abstract class BaseTransport extends EventEmitter implements Tran
     protected _onclose: (() => Promise<void>);
     protected _onerror: ((error: Error) => Promise<void>);
     constructor({ address, port, id, serverPort, protocol }: ConstructorParameter);
-    connect({ timeout }?: {
+    connectWait({ timeout }?: {
         timeout?: number;
     }): Promise<boolean>;
     request(message: string): Promise<string>;

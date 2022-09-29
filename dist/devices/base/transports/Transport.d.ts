@@ -4,7 +4,7 @@ export declare type Transport = {
     onerror: (error: Error) => void;
     onrpcRequest: (rpcRequests: RpcRequest[]) => void;
     onrpcHandler?: (rpcRequests: RpcRequest[]) => void;
-    connect({ timeout }: {
+    connectWait({ timeout }: {
         timeout?: number;
     }): Promise<boolean>;
     request(message: string): Promise<string>;

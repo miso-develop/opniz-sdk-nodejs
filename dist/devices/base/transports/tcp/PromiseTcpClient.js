@@ -29,7 +29,7 @@ class PromiseTcpClient extends events_1.EventEmitter {
         this._port = port;
         this._promiseTimer.timeout = defaultTimeout;
     }
-    connect({ timeout = connectionTimeout } = {}) {
+    connectWait({ timeout = connectionTimeout } = {}) {
         return this._promiseTimer.timer((resolve, reject) => {
             if (this.isConnected())
                 resolve(true);

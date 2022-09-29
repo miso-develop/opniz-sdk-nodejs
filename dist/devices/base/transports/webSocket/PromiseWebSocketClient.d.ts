@@ -20,7 +20,8 @@ export declare class PromiseWebSocketClient extends EventEmitter {
         port: number;
         id?: string;
     });
-    connect({ timeout }?: PromiseTimer.TimeoutOptions): Promise<boolean>;
+    private _connect;
+    connectWait({ timeout }?: PromiseTimer.TimeoutOptions): Promise<boolean>;
     request(message: string, { timeout }?: PromiseTimer.TimeoutOptions): Promise<string>;
     send(message: string, { timeout }?: PromiseTimer.TimeoutOptions): Promise<void>;
     close({ timeout }?: PromiseTimer.TimeoutOptions): Promise<void>;

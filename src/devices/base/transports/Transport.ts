@@ -7,7 +7,7 @@ export type Transport = {
 	onrpcRequest: (rpcRequests: RpcRequest[]) => void
 	onrpcHandler?: (rpcRequests: RpcRequest[]) => void
 	
-	connect({ timeout }: { timeout?: number }): Promise<boolean>
+	connectWait({ timeout }: { timeout?: number }): Promise<boolean>
 	request(message: string): Promise<string>
 	send(message: string): Promise<void>
 	close(): Promise<void>

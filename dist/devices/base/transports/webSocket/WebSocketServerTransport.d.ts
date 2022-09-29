@@ -9,7 +9,7 @@ export declare class WebSocketServerTransport extends PromiseWebSocketServer imp
     constructor({ port }: {
         port: number;
     });
-    connect({ timeout }?: {
+    connectWait({ timeout }?: {
         timeout?: number;
     }): Promise<boolean>;
     request(message: string): Promise<string>;

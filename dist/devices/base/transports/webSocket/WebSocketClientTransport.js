@@ -28,15 +28,13 @@ class WebSocketClientTransport extends PromiseWebSocketClient_1.PromiseWebSocket
             return yield this.onrpcHandler(rpcRequests);
         });
     }
-    connect({ timeout } = {}) {
+    connectWait({ timeout } = {}) {
         const _super = Object.create(null, {
-            connect: { get: () => super.connect }
+            connectWait: { get: () => super.connectWait }
         });
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield _super.connect.call(this, { timeout });
-                yield this._onconnect();
-                return this.isConnected();
+                return yield _super.connectWait.call(this, { timeout });
             }
             catch (e) {
                 yield this._onerror(e);
@@ -82,7 +80,6 @@ class WebSocketClientTransport extends PromiseWebSocketClient_1.PromiseWebSocket
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield _super.close.call(this);
-                yield this._onclose();
             }
             catch (e) {
                 // throw e

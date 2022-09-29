@@ -24,11 +24,9 @@ export class WebSocketClientTransport extends PromiseWebSocketClient implements 
 		super({ address, port, id })
 	}
 	
-	public async connect({ timeout }: { timeout?: number } = {}): Promise<boolean> {
+	public async connectWait({ timeout }: { timeout?: number } = {}): Promise<boolean> {
 		try {
-			await super.connect({ timeout })
-			await this._onconnect()
-			return this.isConnected()
+			return await super.connectWait({ timeout })
 		} catch (e) {
 			await this._onerror(e)
 			// throw e
@@ -59,7 +57,6 @@ export class WebSocketClientTransport extends PromiseWebSocketClient implements 
 	public async close(): Promise<void> {
 		try {
 			await super.close()
-			await this._onclose()
 		} catch (e) {
 			// throw e
 			console.log("Opniz Error:", e.message)

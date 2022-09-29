@@ -10,6 +10,7 @@ export class TcpTransport extends EventEmitter implements Transport {
 	private _client: PromiseTcpClient
 	private _server: PromiseTcpServer
 	
+	// TODO: Promise側にもっていきたい
 	public onconnect: (() => void | Promise<void>) = (): void | Promise<void> => {}
 	public onclose: (() => void | Promise<void>) = (): void | Promise<void> => {}
 	public onerror: ((error: Error) => void | Promise<void>) = (error: Error): void | Promise<void> => {}
@@ -22,6 +23,7 @@ export class TcpTransport extends EventEmitter implements Transport {
 	
 	public ondata: ((data: Buffer) => string | Promise<string>) = async (data: Buffer): Promise<string> => { return this._onrpcHandler(data) }
 	
+	// TODO: Promise側にもっていきたい
 	private _onconnect: (() => Promise<void>) = async (): Promise<void> => { await this.onconnect() }
 	private _onclose: (() => Promise<void>) = async (): Promise<void> => { await this.onclose() }
 	private _onerror: ((error: Error) => Promise<void>) = async (error: Error): Promise<void> => {
@@ -56,10 +58,10 @@ export class TcpTransport extends EventEmitter implements Transport {
 		this._server.ondata = this.ondata
 	}
 	
-	public async connect({ timeout }: { timeout?: number } = {}): Promise<boolean> {
+	public async connectWait({ timeout }: { timeout?: number } = {}): Promise<boolean> {
 		try {
-			await this._client.connect({ timeout })
-			await this._onconnect()
+			await this._client.connectWait({ timeout })
+			await this._onconnect() // TODO: Promise側にもっていきたい
 			return this.isConnected()
 		} catch (e) {
 			await this._onerror(e)
@@ -91,7 +93,7 @@ export class TcpTransport extends EventEmitter implements Transport {
 	public async close(): Promise<void> {
 		try {
 			await this._client.close()
-			await this._onclose()
+			await this._onclose() // TODO: Promise側にもっていきたい
 		} catch (e) {
 			// throw e
 			console.log("Opniz Error:", e.message)

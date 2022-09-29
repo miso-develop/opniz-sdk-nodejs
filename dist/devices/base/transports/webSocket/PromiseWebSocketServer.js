@@ -14,6 +14,7 @@ const events_1 = require("events");
 const socket_io_1 = require("socket.io");
 const PromiseTimer_1 = require("../lib/PromiseTimer");
 const TimeoutError_1 = require("../lib/TimeoutError");
+const utils_1 = require("../../../../utils"); // DEBUG:
 // const dbg = (...v) => console.log(chalk.black.bgBlueBright(getDateStr(), "[PromiseWebSocketServer]", ...v)) // DEBUG:
 const defaultTimeout = 5000;
 const connectTimeout = 10000;
@@ -49,29 +50,32 @@ class PromiseWebSocketServer extends events_1.EventEmitter {
             pingTimeout,
             pingInterval,
         });
+        this._server.on("error", (error) => __awaiter(this, void 0, void 0, function* () { return yield this._onerror(error); }));
+        this._server.on("connection", (socket) => {
+            this.emit("connect");
+            this._socket = socket;
+            this._socket.on("error", (error) => __awaiter(this, void 0, void 0, function* () { return yield this._onerror(error); }));
+            this._socket.on("disconnect", (reason) => __awaiter(this, void 0, void 0, function* () {
+                yield this._onerror(new Error(reason));
+            }));
+            this._socket.on("request", (message, callback) => __awaiter(this, void 0, void 0, function* () {
+                const request = typeof message === "string" ? message : JSON.stringify(message);
+                yield callback(yield this._onrequest(request));
+            }));
+        });
     }
-    connect({ timeout = connectTimeout } = {}) {
+    connectWait({ timeout = connectTimeout } = {}) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this._promiseTimer.timer((resolve, reject) => {
-                if (this.isConnected())
-                    resolve(true);
-                this._server.once("error", reject);
-                this._server.once("connection", (socket) => {
-                    this._socket = socket;
-                    this._socket.on("request", (message, callback) => __awaiter(this, void 0, void 0, function* () {
-                        const request = typeof message === "string" ? message : JSON.stringify(message);
-                        yield callback(yield this._onrequest(request));
-                    }));
-                    this._socket.on("error", (error) => __awaiter(this, void 0, void 0, function* () {
-                        yield this._onerror(error);
-                    }));
-                    this._socket.on("disconnect", (reason) => __awaiter(this, void 0, void 0, function* () {
-                        yield this._onerror(new Error(reason));
-                    }));
-                    this._server.removeListener("error", reject);
-                    resolve(true);
-                });
-            }, { error: new TimeoutError_1.ConnectionTimeoutError(), timeout });
+            let rejected = false;
+            return this._promiseTimer.timer((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                while (!this.isConnected() && !rejected) {
+                    yield utils_1.sleep(100);
+                }
+                resolve(true);
+            }), {
+                callback: (result) => rejected = result === "reject",
+                error: new TimeoutError_1.ConnectionTimeoutError(), timeout,
+            });
         });
     }
     request(message, { timeout = this._promiseTimer.timeout } = {}) {
@@ -107,6 +111,7 @@ class PromiseWebSocketServer extends events_1.EventEmitter {
                     resolve();
                 });
                 this._socket.disconnect(true);
+                this.emit("close");
             }, { error: new TimeoutError_1.CloseTimeoutError(), timeout });
         });
     }

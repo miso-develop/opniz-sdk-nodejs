@@ -33,8 +33,8 @@ class BaseTransport extends events_1.EventEmitter {
         this._transport.onclose = this._onclose;
         this._transport.onerror = this._onerror;
     }
-    connect({ timeout } = {}) {
-        return __awaiter(this, void 0, void 0, function* () { return yield this._transport.connect({ timeout }); });
+    connectWait({ timeout } = {}) {
+        return __awaiter(this, void 0, void 0, function* () { return yield this._transport.connectWait({ timeout }); });
     }
     request(message) {
         return __awaiter(this, void 0, void 0, function* () { return yield this._transport.request(message); });
