@@ -28,9 +28,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BaseDevice = void 0;
+exports.BaseDevice = exports.isRpcTuple = void 0;
 const BaseRpcHandler_1 = require("./BaseRpcHandler");
 const utils = __importStar(require("../../utils"));
+const isRpcTuple = (arg) => typeof arg !== "string" && typeof arg[0] === "string";
+exports.isRpcTuple = isRpcTuple;
 // MEMO: RPCメソッドからRPC文字列を取得する関数をFunctionから生やす
 Function.prototype.rpc = function (...params) {
     const method = this.toString().match(/\.exec\("(.*)"/)[1]; // eslint-disable-line @typescript-eslint/no-non-null-assertion
@@ -58,10 +60,16 @@ class BaseDevice extends BaseRpcHandler_1.BaseRpcHandler {
             yield this.send(rpcRequestString);
         });
     }
-    exec(method, ...params) {
+    exec(arg1, ...arg2) {
         return __awaiter(this, void 0, void 0, function* () {
             // dbg("[exec]")
-            const rpcRequest = this.createRpcRequest(method, ...params);
+            let rpcRequest;
+            if (exports.isRpcTuple(arg1))
+                rpcRequest = this.createRpcRequest(arg1);
+            if (typeof arg1 === "string")
+                rpcRequest = this.createRpcRequest(arg1, ...arg2);
+            if (!rpcRequest)
+                return;
             const rpcResponse = (yield this.requestRpc(rpcRequest))[0];
             return rpcResponse !== "notmatch" ? rpcResponse : undefined;
         });
@@ -69,14 +77,17 @@ class BaseDevice extends BaseRpcHandler_1.BaseRpcHandler {
     execs(rpcs) {
         return __awaiter(this, void 0, void 0, function* () {
             // dbg("[execs]")
-            const rpcRequests = rpcs.map((rpc) => this.createRpcRequest(rpc.shift(), ...rpc));
+            const rpcRequests = rpcs.map((rpc) => this.createRpcRequest(rpc));
             const rpcResponses = (yield this.requestRpc(rpcRequests)).map(rpcResponse => rpcResponse !== "notmatch" ? rpcResponse : undefined);
             return rpcResponses;
         });
     }
-    createRpcRequest(method, ...params) {
+    createRpcRequest(arg1, ...arg2) {
         // dbg("[createRpc]")
-        return { method, params };
+        if (exports.isRpcTuple(arg1))
+            return { method: arg1.shift(), params: arg1 };
+        if (typeof arg1 === "string")
+            return { method: arg1, params: arg2 };
     }
 }
 exports.BaseDevice = BaseDevice;

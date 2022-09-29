@@ -5,6 +5,9 @@ import * as utils from "../../utils"
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseDevice]", ...v)) // DEBUG:
 
+export type RpcTuple = [method: string, ...params: any]
+export const isRpcTuple = (arg: any): arg is RpcTuple => typeof arg !== "string" && typeof arg[0] === "string"
+
 declare global {
 	interface Function {
 		rpc: (...params: any[]) => [string, ...any]
@@ -31,23 +34,32 @@ export abstract class BaseDevice extends BaseRpcHandler {
 		await this.send(rpcRequestString)
 	}
 	
-	public async exec(method: string, ...params: any): Promise<string | undefined> {
+	public async exec(rpcTuple: RpcTuple): Promise<string | undefined>
+	public async exec(...rpcTuple: RpcTuple): Promise<string | undefined>
+	public async exec(arg1: string | RpcTuple, ...arg2: any): Promise<string | undefined> {
 		// dbg("[exec]")
-		const rpcRequest: RpcRequest = this.createRpcRequest(method, ...params)
+		let rpcRequest: RpcRequest | undefined
+		if (isRpcTuple(arg1)) rpcRequest = this.createRpcRequest(arg1)
+		if (typeof arg1 === "string") rpcRequest = this.createRpcRequest(arg1, ...arg2)
+		if (!rpcRequest) return
+		
 		const rpcResponse = (await this.requestRpc(rpcRequest))[0]
 		return rpcResponse !== "notmatch" ? rpcResponse : undefined
 	}
 	
-	public async execs(rpcs: any[][]): Promise<(string | undefined)[]> {
+	public async execs(rpcs: RpcTuple[]): Promise<(string | undefined)[]> {
 		// dbg("[execs]")
-		const rpcRequests: RpcRequest[] = rpcs.map((rpc: any[]): RpcRequest => this.createRpcRequest(rpc.shift(), ...rpc))
+		const rpcRequests: RpcRequest[] = rpcs.map((rpc: RpcTuple): RpcRequest => this.createRpcRequest(rpc))
 		const rpcResponses = (await this.requestRpc(rpcRequests)).map(rpcResponse => rpcResponse !== "notmatch" ? rpcResponse : undefined)
 		return rpcResponses
 	}
 	
-	public createRpcRequest(method: string, ...params: any): RpcRequest {
+	public createRpcRequest(rpcTuple: RpcTuple): RpcRequest
+	public createRpcRequest(...rpcTuple: RpcTuple): RpcRequest
+	public createRpcRequest(arg1: string | RpcTuple, ...arg2: any): RpcRequest | undefined {
 		// dbg("[createRpc]")
-		return { method, params }
+		if (isRpcTuple(arg1)) return { method: arg1.shift(), params: arg1 }
+		if (typeof arg1 === "string") return { method: arg1, params: arg2 }
 	}
 	
 	// utils
