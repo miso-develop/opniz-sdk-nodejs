@@ -1,4 +1,4 @@
-import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "./TimeoutError"
+import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "./Error"
 export { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError }
 
 export class PromiseTimer {

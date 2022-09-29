@@ -13,7 +13,7 @@ exports.PromiseWebSocketClient = void 0;
 const events_1 = require("events");
 const socket_io_client_1 = require("socket.io-client");
 const PromiseTimer_1 = require("../lib/PromiseTimer");
-const TimeoutError_1 = require("../lib/TimeoutError");
+const Error_1 = require("../lib/Error");
 const utils_1 = require("../../../../utils"); // DEBUG:
 // const dbg = (...v) => console.log(chalk.black.bgBlueBright(getDateStr(), "[PromiseWebSocketClient]", ...v)) // DEBUG:
 const defaultTimeout = 5000;
@@ -70,31 +70,31 @@ class PromiseWebSocketClient extends events_1.EventEmitter {
                 resolve(true);
             }), {
                 callback: (result) => rejected = result === "reject",
-                error: new TimeoutError_1.ConnectionTimeoutError(), timeout,
+                error: new Error_1.ConnectionTimeoutError(), timeout,
             });
         });
     }
     request(message, { timeout = this._promiseTimer.timeout } = {}) {
         return this._promiseTimer.timer((resolve, reject) => {
             if (!this.isConnected())
-                reject(new TimeoutError_1.NotConnectedError());
+                reject(new Error_1.NotConnectedError());
             this._socket.once("error", reject);
             this._socket.emit("request", message, (response) => {
                 this._socket.removeListener("error", reject);
                 resolve(typeof response === "string" ? response : JSON.stringify(response));
             });
-        }, { error: new TimeoutError_1.RequestTimeoutError(), timeout });
+        }, { error: new Error_1.RequestTimeoutError(), timeout });
     }
     send(message, { timeout = this._promiseTimer.timeout } = {}) {
         return this._promiseTimer.timer((resolve, reject) => {
             if (!this.isConnected())
-                reject(new TimeoutError_1.NotConnectedError());
+                reject(new Error_1.NotConnectedError());
             this._socket.once("error", reject);
             this._socket.emit("request", message, () => {
                 this._socket.removeListener("error", reject);
                 resolve();
             });
-        }, { error: new TimeoutError_1.RequestTimeoutError(), timeout });
+        }, { error: new Error_1.RequestTimeoutError(), timeout });
     }
     close({ timeout = closeTimeout } = {}) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -108,7 +108,7 @@ class PromiseWebSocketClient extends events_1.EventEmitter {
                 });
                 this._socket.disconnect();
                 this.emit("close");
-            }, { error: new TimeoutError_1.CloseTimeoutError(), timeout });
+            }, { error: new Error_1.CloseTimeoutError(), timeout });
         });
     }
     isConnected() {

@@ -16,7 +16,7 @@ exports.PromiseTcpClient = void 0;
 const events_1 = require("events");
 const net_1 = __importDefault(require("net"));
 const PromiseTimer_1 = require("../lib/PromiseTimer");
-const TimeoutError_1 = require("../lib/TimeoutError");
+const Error_1 = require("../lib/Error");
 // const dbg = (...v) => console.log(chalk.black.bgBlueBright(getDateStr(), "[PromiseTcpClient]", ...v)) // DEBUG:
 const defaultTimeout = 5000;
 const connectionTimeout = 3000;
@@ -35,23 +35,23 @@ class PromiseTcpClient extends events_1.EventEmitter {
                 resolve(true);
             this.socket = net_1.default.connect(this._port, this._address, () => resolve(true));
             this.socket.on("error", this.onerror);
-        }, { error: new TimeoutError_1.ConnectionTimeoutError(), timeout });
+        }, { error: new Error_1.ConnectionTimeoutError(), timeout });
     }
     request(message, { timeout = this._promiseTimer.timeout } = {}) {
         return this._promiseTimer.timer((resolve, reject) => {
             if (!this.isConnected())
-                reject(new TimeoutError_1.NotConnectedError());
+                reject(new Error_1.NotConnectedError());
             // TODO: ackでレスポンス保証入れたい
             this.socket.once("data", data => resolve(data.toString()));
             this.socket.write(message, (error) => error && reject(error));
-        }, { error: new TimeoutError_1.RequestTimeoutError(), timeout });
+        }, { error: new Error_1.RequestTimeoutError(), timeout });
     }
     send(message, { timeout = this._promiseTimer.timeout } = {}) {
         return this._promiseTimer.timer((resolve, reject) => {
             if (!this.isConnected())
-                reject(new TimeoutError_1.NotConnectedError());
+                reject(new Error_1.NotConnectedError());
             this.socket.write(message, (error) => error ? reject(error) : resolve());
-        }, { error: new TimeoutError_1.RequestTimeoutError(), timeout });
+        }, { error: new Error_1.RequestTimeoutError(), timeout });
     }
     close({ timeout = this._promiseTimer.timeout } = {}) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -65,7 +65,7 @@ class PromiseTcpClient extends events_1.EventEmitter {
                     resolve();
                 });
                 this.socket.destroy();
-            }, { error: new TimeoutError_1.CloseTimeoutError(), timeout });
+            }, { error: new Error_1.CloseTimeoutError(), timeout });
         });
     }
     isConnected() {

@@ -16,3 +16,6 @@ export declare class NotConnectedError extends Error {
 export declare class ListenTimeoutError extends TimeoutError {
     constructor(message?: string);
 }
+export declare class NotImplementedConnectError extends TimeoutError {
+    constructor(message?: string);
+}

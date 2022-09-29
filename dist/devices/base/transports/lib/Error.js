@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListenTimeoutError = exports.NotConnectedError = exports.CloseTimeoutError = exports.RequestTimeoutError = exports.ConnectionTimeoutError = exports.TimeoutError = void 0;
+exports.NotImplementedConnectError = exports.ListenTimeoutError = exports.NotConnectedError = exports.CloseTimeoutError = exports.RequestTimeoutError = exports.ConnectionTimeoutError = exports.TimeoutError = void 0;
 class TimeoutError extends Error {
     constructor(message = "Timeout.") {
         super(message);
@@ -41,3 +41,9 @@ class ListenTimeoutError extends TimeoutError {
     }
 }
 exports.ListenTimeoutError = ListenTimeoutError;
+class NotImplementedConnectError extends TimeoutError {
+    constructor(message = "connect() is not implemented.") {
+        super(message);
+    }
+}
+exports.NotImplementedConnectError = NotImplementedConnectError;

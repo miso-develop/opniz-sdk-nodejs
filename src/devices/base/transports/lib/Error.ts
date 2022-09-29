@@ -37,3 +37,9 @@ export class ListenTimeoutError extends TimeoutError {
 		super(message)
 	}
 }
+
+export class NotImplementedConnectError extends TimeoutError {
+	constructor(message = "connect() is not implemented.") {
+		super(message)
+	}
+}
