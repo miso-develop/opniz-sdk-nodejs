@@ -1,5 +1,5 @@
 import { PromiseTcpClient } from "../../../../../src/devices/base/transports/tcp/PromiseTcpClient"
-import { ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "../../../../../src/devices/base/transports/lib/TimeoutError"
+import { ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "../../../../../src/devices/base/transports/lib/Error"
 import { PromiseTcpServerMock } from "./PromiseTcpServerMock"
 import { env, getPort } from "../../../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../../src/utils"

@@ -1,5 +1,5 @@
 import { BaseDevice } from "../../../src/devices/base/BaseDevice"
-import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "../../../src/devices/base/transports/lib/TimeoutError"
+import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "../../../src/devices/base/transports/lib/Error"
 import { env, getPort } from "../../env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../src/utils"
 

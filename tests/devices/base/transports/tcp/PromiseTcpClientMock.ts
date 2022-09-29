@@ -1,6 +1,6 @@
 import { PromiseTcpClient } from "../../../../../src/devices/base/transports/tcp/PromiseTcpClient"
 import { PromiseTimer, TimeoutOptions } from "../../../../../src/devices/base/transports/lib/PromiseTimer"
-import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "../../../../../src/devices/base/transports/lib/TimeoutError"
+import { TimeoutError, ConnectionTimeoutError, RequestTimeoutError, NotConnectedError } from "../../../../../src/devices/base/transports/lib/Error"
 
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../../../../src/utils"
 
