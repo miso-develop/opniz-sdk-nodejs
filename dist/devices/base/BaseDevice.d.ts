@@ -1,6 +1,11 @@
 import { BaseRpcHandler } from "./BaseRpcHandler";
 import { RpcRequest } from "./transports/Transport";
 import * as utils from "../../utils";
+declare global {
+    interface Function {
+        rpc: (...params: any[]) => [string, ...any];
+    }
+}
 export declare abstract class BaseDevice extends BaseRpcHandler {
     requestRpc(rpcRequest: RpcRequest | RpcRequest[]): Promise<any[]>;
     sendRpc(rpcRequest: RpcRequest | RpcRequest[]): Promise<void>;

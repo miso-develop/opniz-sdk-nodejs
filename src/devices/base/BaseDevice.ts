@@ -5,6 +5,18 @@ import * as utils from "../../utils"
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseDevice]", ...v)) // DEBUG:
 
+declare global {
+	interface Function {
+		rpc: (...params: any[]) => [string, ...any]
+	}
+}
+
+// MEMO: RPCメソッドからRPC文字列を取得する関数をFunctionから生やす
+Function.prototype.rpc = function(...params: any) {
+	const method = this.toString().match(/\.exec\("(.*)"/)![1] // eslint-disable-line @typescript-eslint/no-non-null-assertion
+	return [method, ...params]
+}
+
 export abstract class BaseDevice extends BaseRpcHandler {
 	
 	public async requestRpc(rpcRequest: RpcRequest |RpcRequest[]): Promise<any[]> {

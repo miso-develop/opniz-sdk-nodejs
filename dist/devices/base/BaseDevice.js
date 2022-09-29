@@ -31,7 +31,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseDevice = void 0;
 const BaseRpcHandler_1 = require("./BaseRpcHandler");
 const utils = __importStar(require("../../utils"));
-// const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseDevice]", ...v)) // DEBUG:
+// MEMO: RPCメソッドからRPC文字列を取得する関数をFunctionから生やす
+Function.prototype.rpc = function (...params) {
+    const method = this.toString().match(/\.exec\("(.*)"/)[1]; // eslint-disable-line @typescript-eslint/no-non-null-assertion
+    return [method, ...params];
+};
 class BaseDevice extends BaseRpcHandler_1.BaseRpcHandler {
     constructor() {
         super(...arguments);
