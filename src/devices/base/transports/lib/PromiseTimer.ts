@@ -9,18 +9,21 @@ export class PromiseTimer {
 		{
 			error = new TimeoutError(),
 			timeout = this.timeout,
-		}: PromiseTimer.TimeoutOptions = {}
+			callback = () => {},
+		}: PromiseTimer.TimerOptions = {}
 	): Promise<T> {
 		return new Promise<T>((resolve, reject) => {
 			const timeoutId = setTimeout(() => _reject(error), timeout)
 			
 			const _resolve = (returnValue: T): void => {
 				clearTimeout(timeoutId)
+				callback("resolve")
 				resolve(returnValue)
 			}
 			
 			const _reject = (error: Error): void => {
 				clearTimeout(timeoutId)
+				callback("reject")
 				reject(error)
 			}
 			
@@ -30,8 +33,16 @@ export class PromiseTimer {
 }
 
 export namespace PromiseTimer {
-	export type TimeoutOptions = Partial<{
-		error: TimeoutError
-		timeout: number
-	}>
+	export type TimeoutOptions = {
+		error?: TimeoutError
+		timeout?: number
+	}
+	
+	export type PromiseResult = "resolve" | "reject"
+	export type TimerCallback = (result: PromiseResult) => void
+	
+	export interface TimerOptions extends TimeoutOptions {
+		callback?: TimerCallback
+	}
+	
 }

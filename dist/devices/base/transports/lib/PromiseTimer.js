@@ -10,15 +10,17 @@ class PromiseTimer {
     constructor() {
         this.timeout = 5000;
     }
-    timer(func, { error = new TimeoutError_1.TimeoutError(), timeout = this.timeout, } = {}) {
+    timer(func, { error = new TimeoutError_1.TimeoutError(), timeout = this.timeout, callback = () => { }, } = {}) {
         return new Promise((resolve, reject) => {
             const timeoutId = setTimeout(() => _reject(error), timeout);
             const _resolve = (returnValue) => {
                 clearTimeout(timeoutId);
+                callback("resolve");
                 resolve(returnValue);
             };
             const _reject = (error) => {
                 clearTimeout(timeoutId);
+                callback("reject");
                 reject(error);
             };
             func(_resolve, _reject);
