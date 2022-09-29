@@ -23,7 +23,12 @@ export class Esp32 extends BaseDevice {
 	
 	public async restart(): Promise<boolean> {
 		// dbg("[restart]")
-		return Boolean(await this.exec("restart"))
+		// MEMO: デバイスがrestartされるとレスポンスが返ってこずエラーとなるため、catchしてtrueを返す
+		try {
+			return Boolean(await this.exec("restart"))
+		} catch {
+			return true
+		}
 	}
 	
 	public async delay(ms: number): Promise<boolean> {

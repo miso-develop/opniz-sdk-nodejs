@@ -34,7 +34,13 @@ class Esp32 extends BaseDevice_1.BaseDevice {
     restart() {
         return __awaiter(this, void 0, void 0, function* () {
             // dbg("[restart]")
-            return Boolean(yield this.exec("restart"));
+            // MEMO: デバイスがrestartされるとレスポンスが返ってこずエラーとなるため、catchしてtrueを返す
+            try {
+                return Boolean(yield this.exec("restart"));
+            }
+            catch (_a) {
+                return true;
+            }
         });
     }
     delay(ms) {
