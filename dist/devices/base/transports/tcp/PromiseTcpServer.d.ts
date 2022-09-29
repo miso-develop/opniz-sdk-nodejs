@@ -1,4 +1,6 @@
 /// <reference types="node" />
+/// <reference types="node" />
+/// <reference types="node" />
 import { EventEmitter } from "events";
 import net from "net";
 export declare class PromiseTcpServer extends EventEmitter {

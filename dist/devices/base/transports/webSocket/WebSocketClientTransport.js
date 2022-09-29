@@ -40,7 +40,7 @@ class WebSocketClientTransport extends PromiseWebSocketClient_1.PromiseWebSocket
                 yield this._onerror(e);
                 // throw e
                 console.log("Opniz Error:", e.message);
-                yield utils_1.sleep(500);
+                yield (0, utils_1.sleep)(500);
                 return false;
             }
         });

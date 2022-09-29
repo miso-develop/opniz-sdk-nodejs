@@ -46,7 +46,7 @@ class PromiseWebSocketClient extends events_1.EventEmitter {
     }
     _connect(address, port, id = "___default___") {
         const uri = `ws://${address}:${port}`;
-        this._socket = socket_io_client_1.io(uri, {
+        this._socket = (0, socket_io_client_1.io)(uri, {
             query: { opnizId: id },
             timeout: connectTimeout,
         });
@@ -65,7 +65,7 @@ class PromiseWebSocketClient extends events_1.EventEmitter {
             let rejected = false;
             return this._promiseTimer.timer((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
                 while (!this.isConnected() && !rejected) {
-                    yield utils_1.sleep(100);
+                    yield (0, utils_1.sleep)(100);
                 }
                 resolve(true);
             }), {

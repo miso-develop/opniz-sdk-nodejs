@@ -69,7 +69,7 @@ class PromiseWebSocketServer extends events_1.EventEmitter {
             let rejected = false;
             return this._promiseTimer.timer((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
                 while (!this.isConnected() && !rejected) {
-                    yield utils_1.sleep(100);
+                    yield (0, utils_1.sleep)(100);
                 }
                 resolve(true);
             }), {

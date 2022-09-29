@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -64,7 +68,7 @@ class BaseDevice extends BaseRpcHandler_1.BaseRpcHandler {
         return __awaiter(this, void 0, void 0, function* () {
             // dbg("[exec]")
             let rpcRequest;
-            if (exports.isRpcTuple(arg1))
+            if ((0, exports.isRpcTuple)(arg1))
                 rpcRequest = this.createRpcRequest(arg1);
             if (typeof arg1 === "string")
                 rpcRequest = this.createRpcRequest(arg1, ...arg2);
@@ -84,7 +88,7 @@ class BaseDevice extends BaseRpcHandler_1.BaseRpcHandler {
     }
     createRpcRequest(arg1, ...arg2) {
         // dbg("[createRpc]")
-        if (exports.isRpcTuple(arg1))
+        if ((0, exports.isRpcTuple)(arg1))
             return { method: arg1.shift(), params: arg1 };
         if (typeof arg1 === "string")
             return { method: arg1, params: arg2 };
