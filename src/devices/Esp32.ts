@@ -1,6 +1,5 @@
 /* eslint @typescript-eslint/no-inferrable-types: "off" */
 import { BaseDevice } from "./base/BaseDevice"
-import { DeviceConstructorParameter } from "./base/transports/Transport"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:

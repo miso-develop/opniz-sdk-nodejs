@@ -1,4 +1,4 @@
-export interface Transport {
+export declare type Transport = {
     onconnect: () => void;
     onclose: () => void;
     onerror: (error: Error) => void;
@@ -12,42 +12,32 @@ export interface Transport {
     close(): Promise<void>;
     isConnected(): boolean;
     setTimeout(timeout: number): void;
-}
-export interface RpcRequest {
+};
+export declare type RpcRequest = {
     method: string;
     params: any[];
-}
+};
 export declare const Protocol: {
     WebSocketServer: string;
     WebSocketClient: string;
     TCP: string;
 };
 export declare type Protocol = typeof Protocol[keyof typeof Protocol];
-export declare type ConstructorParameter = {
-    address?: string;
+export declare type WebSocketServerConstructorParameter = {
     port: number;
     id?: string;
-    serverPort?: number;
-    protocol?: Protocol;
+    protocol?: "WebSocketServer";
 };
-export declare type DeviceConstructorParameter = {
-    address?: undefined;
-    port: number;
-    id?: undefined;
-    serverPort?: undefined;
-    protocol?: undefined;
-} | // WebSocketServer
-{
+export declare type WebSocketClientConstructorParameter = {
     address: string;
     port: number;
     id?: string;
-    serverPort?: undefined;
-    protocol?: Protocol;
-} | // WebSocketClient
-{
+    protocol: "WebSocketClient";
+};
+export declare type TCPConstructorParameter = {
     address: string;
     port: number;
-    id?: undefined;
     serverPort?: number;
-    protocol?: Protocol;
+    protocol: "TCP";
 };
+export declare type ConstructorParameter = WebSocketServerConstructorParameter | WebSocketClientConstructorParameter | TCPConstructorParameter;

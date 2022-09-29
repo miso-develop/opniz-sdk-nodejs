@@ -4,5 +4,5 @@ export declare class ConstructorParameterError extends Error {
 }
 export declare class TransportCreator {
     private static _defaultProtocol;
-    static create({ address, port, id, serverPort, protocol, }: ConstructorParameter): Transport;
+    static create({ address, port, id, serverPort, protocol }: ConstructorParameter): Transport;
 }

@@ -14,8 +14,8 @@ exports.Imu = exports.Btn = exports.Dis = exports.M5Atom = void 0;
 const Esp32_1 = require("./Esp32");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Atom]", ...v)) // DEBUG:
 class M5Atom extends Esp32_1.Esp32 {
-    constructor({ address, port, id, serverPort, protocol }) {
-        super({ address, port, id, serverPort, protocol });
+    constructor() {
+        super(...arguments);
         this.dis = new Dis(this);
         this.Btn = new Btn(this);
         this.IMU = new Imu(this);
@@ -27,6 +27,9 @@ class M5Atom extends Esp32_1.Esp32 {
         };
         // add onmethod event
         this.onbutton = (params) => { };
+    }
+    init() {
+        super.init();
         // add rpc handler
         this.rpcHandler.add({
             name: "button",

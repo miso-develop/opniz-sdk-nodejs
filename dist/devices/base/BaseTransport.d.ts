@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import { EventEmitter } from "events";
 import { Transport, RpcRequest, ConstructorParameter } from "./transports/Transport";
-export declare class BaseTransport extends EventEmitter implements Transport {
+export declare abstract class BaseTransport extends EventEmitter implements Transport {
     protected _transport: Transport;
     onconnect: (() => void | Promise<void>);
     onclose: (() => void | Promise<void>);

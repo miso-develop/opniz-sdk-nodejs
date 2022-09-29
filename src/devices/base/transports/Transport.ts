@@ -1,4 +1,6 @@
-export interface Transport {
+type PartiallyRequired<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
+
+export type Transport = {
 	onconnect: () => void
 	onclose: () => void
 	onerror: (error: Error) => void
@@ -13,7 +15,7 @@ export interface Transport {
 	setTimeout(timeout: number): void
 }
 
-export interface RpcRequest {
+export type RpcRequest = {
 	method: string
 	params: any[]
 }
@@ -25,15 +27,7 @@ export const Protocol = {
 }
 export type Protocol = typeof Protocol[keyof typeof Protocol]
 
-export type ConstructorParameter = {
-	address?: string
-	port: number
-	id?: string
-	serverPort?: number
-	protocol?: Protocol
-}
-
-export type DeviceConstructorParameter =
-{ address?: undefined;	port: number;	id?: undefined;	serverPort?: undefined;	protocol?: undefined } |	// WebSocketServer
-{ address: string;		port: number;	id?: string;	serverPort?: undefined;	protocol?: Protocol } |	// WebSocketClient
-{ address: string;		port: number;	id?: undefined;	serverPort?: number;	protocol?: Protocol }	// TCP
+export type WebSocketServerConstructorParameter =	{ 						port: number;	id?: string;							protocol?: "WebSocketServer" }
+export type WebSocketClientConstructorParameter =	{ address: string;		port: number;	id?: string;							protocol: "WebSocketClient" }
+export type TCPConstructorParameter = 				{ address: string;		port: number;					serverPort?: number;	protocol: "TCP" }
+export type ConstructorParameter = WebSocketServerConstructorParameter | WebSocketClientConstructorParameter | TCPConstructorParameter

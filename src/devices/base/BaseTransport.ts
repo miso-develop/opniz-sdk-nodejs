@@ -5,7 +5,7 @@ import { TransportCreator } from "./transports/TransportCreator"
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseTransport]", ...v)) // DEBUG:
 
-export class BaseTransport extends EventEmitter implements Transport {
+export abstract class BaseTransport extends EventEmitter implements Transport {
 	protected _transport: Transport
 	
 	public onconnect: (() => void | Promise<void>) = (): void | Promise<void> => {}
@@ -19,6 +19,7 @@ export class BaseTransport extends EventEmitter implements Transport {
 	protected _onclose: (() => Promise<void>) = async (): Promise<void> => { await this.onclose() }
 	protected _onerror: ((error: Error) => Promise<void>) = async (error: Error): Promise<void> => { await this.onerror(error) }
 	
+	// @ts-ignore TODO:
 	constructor({ address, port, id, serverPort, protocol }: ConstructorParameter) {
 		super()
 		

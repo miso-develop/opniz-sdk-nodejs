@@ -14,6 +14,7 @@ class ConstructorParameterError extends Error {
 }
 exports.ConstructorParameterError = ConstructorParameterError;
 class TransportCreator {
+    // @ts-ignore TODO:
     static _defaultProtocol({ address, port, id, serverPort }) {
         if (id !== "___default___" && serverPort !== port)
             throw new ConstructorParameterError();
@@ -23,7 +24,8 @@ class TransportCreator {
             return Transport_1.Protocol.TCP;
         return Transport_1.Protocol.WebSocketServer;
     }
-    static create({ address, port, id = "___default___", serverPort = port, protocol = this._defaultProtocol({ address, port, id, serverPort }), }) {
+    // @ts-ignore TODO:
+    static create({ address, port, id = "___default___", serverPort = port, protocol = this._defaultProtocol({ address, port, id, serverPort }) }) {
         switch (protocol) {
             default:
                 return new WebSocketServerTransport_1.WebSocketServerTransport({ port });

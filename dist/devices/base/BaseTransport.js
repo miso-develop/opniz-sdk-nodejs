@@ -14,6 +14,7 @@ const events_1 = require("events");
 const TransportCreator_1 = require("./transports/TransportCreator");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseTransport]", ...v)) // DEBUG:
 class BaseTransport extends events_1.EventEmitter {
+    // @ts-ignore TODO:
     constructor({ address, port, id, serverPort, protocol }) {
         super();
         this.onconnect = () => { };

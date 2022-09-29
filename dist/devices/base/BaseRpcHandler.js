@@ -14,6 +14,7 @@ const BaseTransport_1 = require("./BaseTransport");
 const RpcHandlerExtension_1 = require("./RpcHandlerExtension");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseRpcHandler]", ...v)) // DEBUG:
 class BaseRpcHandler extends BaseTransport_1.BaseTransport {
+    // @ts-ignore TODO:
     constructor({ address, port, id, serverPort, protocol }) {
         super({ address, port, id, serverPort, protocol });
         this.rpcHandler = new RpcHandlerExtension_1.RpcHandlerExtension();
@@ -28,6 +29,8 @@ class BaseRpcHandler extends BaseTransport_1.BaseTransport {
         this.on("notmatch", this._onnotmatch);
         this._transport.onrpcRequest = this._onrpcRequest;
         this._transport.onrpcHandler = this._onrpcHandler;
+        this.init();
     }
+    init() { }
 }
 exports.BaseRpcHandler = BaseRpcHandler;
