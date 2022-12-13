@@ -48,7 +48,7 @@ const port = 3000 // 任意のポートを指定（opnizデバイスの指定と
 
 ; (async () => {
 	const opniz = new Opniz.Esp32({ port }) // opnizインスタンス生成
-	await opniz.connect()                   // opnizデバイスへ接続
+	await opniz.connectWait()               // opnizデバイスへ接続
 	console.log(await opniz.getFreeHeap())  // opnizデバイスのヒープメモリーサイズを取得して表示
 })()
 ```
@@ -63,7 +63,7 @@ const opniz = new Opniz.Esp32({ port }) // opnizインスタンス生成
 
 const main = async () => {
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) console.log("connect...")
+	while (!(await opniz.connectWait())) console.log("connect...")
 	console.log("[connected]")
 	
 	try {
@@ -106,12 +106,12 @@ const port = 3000 // 任意のポートを指定（opnizデバイスでの指定
 const opniz = new Opniz.M5Atom({ port }) // opnizインスタンス生成
 
 const OFF = "#000000"
-const GREEN = "#ff0000"
+const GREEN = "#00ff00"
 let color = OFF
 
 const main = async () => {
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) console.log("connect...")
+	while (!(await opniz.connectWait())) console.log("connect...")
 	console.log("[connected]")
 	
 	try {
@@ -153,7 +153,7 @@ let value = LOW
 
 const main = async () => {
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) console.log("connect...")
+	while (!(await opniz.connectWait())) console.log("connect...")
 	console.log("[connected]")
 	
 	try {
@@ -187,7 +187,7 @@ const opniz = new Opniz.M5Atom({ port }) // opnizインスタンス生成
 
 const main = async () => {
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) console.log("connect...")
+	while (!(await opniz.connectWait())) console.log("connect...")
 	console.log("[connected]")
 	
 	// M5ATOMのボタンが押されたらconsole表示
