@@ -11,7 +11,7 @@ const pin = 10
 
 const main = async () => {
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) console.log("connect...")
+	while (!(await opniz.connectWait())) console.log("connect...")
 	console.log("[connected]")
 	
 	try {

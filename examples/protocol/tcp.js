@@ -7,12 +7,12 @@ const protocol = "TCP"
 const opniz = new Opniz.M5Atom({ address, port, serverPort, protocol }) // opnizインスタンス生成
 
 const OFF = "#000000"
-const GREEN = "#ff0000"
+const GREEN = "#00ff00"
 let color = OFF
 
 const main = async () => {
 	// opnizデバイスへ接続
-	while (!(await opniz.connect())) console.log("connect...")
+	while (!(await opniz.connectWait())) console.log("connect...")
 	console.log("[connected]")
 	
 	try {
