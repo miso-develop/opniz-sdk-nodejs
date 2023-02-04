@@ -75,8 +75,16 @@ export class Dis {
 		return Boolean(await this.opniz.exec("_M5.dis.drawpix(uint8_t,CRGB):void", Number, Color))
 	}
 	
+	public async fillpix(Color: string): Promise<boolean> {
+		return Boolean(await this.opniz.exec("_M5.dis.fillpix(CRGB):void", Color))
+	}
+	
 	public async clear(): Promise<boolean> {
 		return Boolean(await this.opniz.exec("_M5.dis.clear():void"))
+	}
+	
+	public async setWidthHeight(xColumns: number, yRows: number): Promise<boolean> {
+		return Boolean(await this.opniz.exec("_M5.dis.setWidthHeight(uint16_t,uint16_t):void", xColumns, yRows))
 	}
 }
 
