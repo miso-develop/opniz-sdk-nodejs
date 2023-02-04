@@ -85,9 +85,19 @@ class Dis {
             return Boolean(yield this.opniz.exec("_M5.dis.drawpix(uint8_t,CRGB):void", Number, Color));
         });
     }
+    fillpix(Color) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return Boolean(yield this.opniz.exec("_M5.dis.fillpix(CRGB):void", Color));
+        });
+    }
     clear() {
         return __awaiter(this, void 0, void 0, function* () {
             return Boolean(yield this.opniz.exec("_M5.dis.clear():void"));
+        });
+    }
+    setWidthHeight(xColumns, yRows) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return Boolean(yield this.opniz.exec("_M5.dis.setWidthHeight(uint16_t,uint16_t):void", xColumns, yRows));
         });
     }
 }

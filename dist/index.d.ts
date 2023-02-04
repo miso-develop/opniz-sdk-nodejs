@@ -16,4 +16,6 @@ export declare namespace Opniz {
         TCP: string;
     };
     type Protocol = types.Protocol;
+    type ConstructorParameter = types.ConstructorParameter;
 }
+export { BaseDevice, Esp32, M5Atom };

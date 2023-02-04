@@ -23,10 +23,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Opniz = void 0;
+exports.M5Atom = exports.Esp32 = exports.BaseDevice = exports.Opniz = void 0;
 const BaseDevice_1 = require("./devices/base/BaseDevice");
+Object.defineProperty(exports, "BaseDevice", { enumerable: true, get: function () { return BaseDevice_1.BaseDevice; } });
 const Esp32_1 = require("./devices/Esp32");
+Object.defineProperty(exports, "Esp32", { enumerable: true, get: function () { return Esp32_1.Esp32; } });
 const M5Atom_1 = require("./devices/M5Atom");
+Object.defineProperty(exports, "M5Atom", { enumerable: true, get: function () { return M5Atom_1.M5Atom; } });
 const utils = __importStar(require("./utils"));
 const types = __importStar(require("./devices/base/transports/Transport"));
 class Opniz {

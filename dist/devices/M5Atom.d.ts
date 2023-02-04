@@ -14,7 +14,9 @@ export declare class Dis {
     constructor(opniz: Esp32);
     setBrightness(brightness: number): Promise<boolean>;
     drawpix(Number: number, Color: string): Promise<boolean>;
+    fillpix(Color: string): Promise<boolean>;
     clear(): Promise<boolean>;
+    setWidthHeight(xColumns: number, yRows: number): Promise<boolean>;
 }
 export declare class Btn {
     private opniz;
