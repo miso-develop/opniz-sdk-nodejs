@@ -14,4 +14,7 @@ export class Opniz {
 export namespace Opniz {
 	export const { Protocol } = types
 	export type Protocol = types.Protocol
+	export type ConstructorParameter = types.ConstructorParameter
 }
+
+export { BaseDevice, Esp32, M5Atom }
