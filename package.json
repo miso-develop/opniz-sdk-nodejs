@@ -41,7 +41,7 @@
 		"prebuild": "npm run clean",
 		"build:prod": "npx tsc --sourceMap false --declarationMap false",
 		"build:dev": "npx tsc",
-		"build": "npm run build:dev",
+		"build": "npm run build:prod",
 		"bp": "npm run build:prod",
 		"bd": "npm run build:dev",
 		"b": "npm run build",
