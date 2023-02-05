@@ -242,8 +242,8 @@ main()
 
 [**TypeDoc**](https://miso-develop.github.io/opniz-sdk-nodejs/)  
 
-* [Class M5Atom](https://miso-develop.github.io/opniz-sdk-nodejs/classes/devices_m5atom.m5atom.html)
-* [Class Esp32](https://miso-develop.github.io/opniz-sdk-nodejs/classes/devices_esp32.esp32.html)
+* [Class M5Atom](https://miso-develop.github.io/opniz-sdk-nodejs/classes/devices_M5Atom.M5Atom.html)
+* [Class Esp32](https://miso-develop.github.io/opniz-sdk-nodejs/classes/devices_Esp32.Esp32.html)
 
 
 ## 利用可能な通信プロトコル
