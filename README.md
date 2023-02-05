@@ -216,10 +216,6 @@ main()
 
 `pin`に指定したピンからアナログ値を読み取ります。  
 
-#### dacWrite(pin: number, value: number): Promise\<boolean\>
-
-`pin`に指定したピンから`value`に指定した値をDAC（Digital Analog Converter）出力します。  
-
 #### digitalRead(pin: number): Promise\<number\>
 
 `pin`に指定したピンからデジタル値（0 or 1）を読み取ります。  
