@@ -1,8 +1,8 @@
 import { env, getPort } from "./env"
 import { log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../src/utils"
 
-describe("<ClassName>", () => {
-// describe.skip("<ClassName>", () => {
+// describe("<ClassName>", () => {
+describe.skip("<ClassName>", () => {
 	
 	const _env = env
 	
