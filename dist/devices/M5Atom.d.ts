@@ -1,11 +1,11 @@
-import { Esp32 } from "./Esp32";
+import { Esp32, ConstructorParameter } from "./Esp32";
 export declare class M5Atom extends Esp32 {
     dis: Dis;
     Btn: Btn;
     IMU: Imu;
     private _checkColorCode;
     onbutton: ((params?: string[]) => void | Promise<void>);
-    protected init(): void;
+    constructor(parameters: ConstructorParameter);
     begin(SerialEnable?: boolean, I2CEnable?: boolean, DisplayEnable?: boolean): Promise<boolean>;
     update(): Promise<boolean>;
 }
