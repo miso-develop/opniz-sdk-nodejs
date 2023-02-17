@@ -1,0 +1,103 @@
+import { Esp32, ConstructorParameter } from "./Esp32";
+import { LED } from "./m5unified/LED";
+import { Button } from "./m5unified/Button";
+import { IMU } from "./m5unified/IMU";
+import { Display } from "./m5unified/Display";
+export declare class M5Unified extends Esp32 {
+    Led: LED;
+    Btn: Button;
+    Imu: IMU;
+    Display: Display;
+    Lcd: Display;
+    BoardType: {
+        readonly board_unknown: 0;
+        readonly board_Non_Panel: 1;
+        readonly board_M5Stack: 2;
+        readonly board_M5StackCore2: 3;
+        readonly board_M5StickC: 4;
+        readonly board_M5StickCPlus: 5;
+        readonly board_M5StackCoreInk: 6;
+        readonly board_M5Paper: 7;
+        readonly board_M5Tough: 8;
+        readonly board_M5Station: 9;
+        readonly board_M5StackCoreS3: 10;
+        readonly board_M5AtomS3: 11;
+        readonly board_M5Atom: 12;
+        readonly board_M5AtomPsram: 13;
+        readonly board_M5AtomU: 14;
+        readonly board_M5Camera: 15;
+        readonly board_M5TimerCam: 16;
+        readonly board_M5StampPico: 17;
+        readonly board_M5StampC3: 18;
+        readonly board_M5StampC3U: 19;
+        readonly board_M5StampS3: 20;
+        readonly board_M5AtomS3Lite: 21;
+        readonly board_M5AtomDisplay: 22;
+        readonly board_M5UnitLCD: 23;
+        readonly board_M5UnitOLED: 24;
+        readonly board_M5UnitRCA: 25;
+        readonly board_M5ModuleDisplay: 26;
+        readonly board_M5ModuleRCA: 27;
+    };
+    BoardTypeList: {
+        [key: number]: string;
+    };
+    constructor(parameters: ConstructorParameter);
+    begin(cfg: M5Unified.Config): Promise<boolean | undefined>;
+    config(cfg?: M5Unified.Config): Promise<M5Unified.Config | boolean | undefined>;
+    getBoard(): Promise<M5Unified.BoardTypeList | undefined>;
+    getUpdateMsec(): Promise<number | undefined>;
+    update(): Promise<boolean | undefined>;
+    private _parseConfig;
+}
+declare const BoardType: {
+    readonly board_unknown: 0;
+    readonly board_Non_Panel: 1;
+    readonly board_M5Stack: 2;
+    readonly board_M5StackCore2: 3;
+    readonly board_M5StickC: 4;
+    readonly board_M5StickCPlus: 5;
+    readonly board_M5StackCoreInk: 6;
+    readonly board_M5Paper: 7;
+    readonly board_M5Tough: 8;
+    readonly board_M5Station: 9;
+    readonly board_M5StackCoreS3: 10;
+    readonly board_M5AtomS3: 11;
+    readonly board_M5Atom: 12;
+    readonly board_M5AtomPsram: 13;
+    readonly board_M5AtomU: 14;
+    readonly board_M5Camera: 15;
+    readonly board_M5TimerCam: 16;
+    readonly board_M5StampPico: 17;
+    readonly board_M5StampC3: 18;
+    readonly board_M5StampC3U: 19;
+    readonly board_M5StampS3: 20;
+    readonly board_M5AtomS3Lite: 21;
+    readonly board_M5AtomDisplay: 22;
+    readonly board_M5UnitLCD: 23;
+    readonly board_M5UnitOLED: 24;
+    readonly board_M5UnitRCA: 25;
+    readonly board_M5ModuleDisplay: 26;
+    readonly board_M5ModuleRCA: 27;
+};
+declare const BoardTypeList: {
+    [key: number]: string;
+};
+export declare namespace M5Unified {
+    type Config = {
+        "serial_baudrate"?: number;
+        "clear_display"?: boolean;
+        "output_power"?: boolean;
+        "internal_imu"?: boolean;
+        "internal_rtc"?: boolean;
+        "internal_spk"?: boolean;
+        "internal_mic"?: boolean;
+        "external_imu"?: boolean;
+        "external_rtc"?: boolean;
+        "external_spk"?: boolean;
+        "led_brightness"?: number;
+    };
+    type BoardType = typeof BoardType[keyof typeof BoardType];
+    type BoardTypeList = typeof BoardTypeList[keyof typeof BoardTypeList];
+}
+export {};
