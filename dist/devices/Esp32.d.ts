@@ -1,13 +1,16 @@
-import { BaseDevice } from "./base/BaseDevice";
+import { BaseDevice, ConstructorParameter } from "./base/BaseDevice";
+export { ConstructorParameter };
 export declare class Esp32 extends BaseDevice {
-    getDeviceName(): Promise<string>;
-    getFreeHeap(): Promise<number>;
-    temperatureRead(): Promise<number>;
-    restart(): Promise<boolean>;
-    delay(ms: number): Promise<boolean>;
-    analogRead(pin: number): Promise<number>;
-    dacWrite(pin: number, value: number): Promise<boolean>;
-    digitalRead(pin: number): Promise<number>;
-    digitalWrite(pin: number, val: number): Promise<boolean>;
-    ledcWrite(pin: number, duty: number, channel?: number, freq?: number, resolutionBits?: number): Promise<boolean>;
+    getVersion(): Promise<string | undefined>;
+    getFreeHeap(): Promise<number | undefined>;
+    temperatureRead(): Promise<number | undefined>;
+    restart(): Promise<boolean | undefined>;
+    delay(ms: number): Promise<boolean | undefined>;
+    analogRead(pin: number): Promise<number | undefined>;
+    digitalRead(pin: number): Promise<number | undefined>;
+    digitalWrite(pin: number, val: number): Promise<boolean | undefined>;
+    ledcWrite(pin: number, duty: number, channel?: number, freq?: number, resolutionBits?: number): Promise<boolean | undefined>;
+    pinMode(pin: number, mode: number): Promise<boolean | undefined>;
+    ledcSetup(chan: number, freq: number, bitNum: number): Promise<number | undefined>;
+    ledcAttachPin(pin: number, chan: number): Promise<boolean | undefined>;
 }
