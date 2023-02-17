@@ -1,7 +1,8 @@
-import { BaseRpcHandler } from "./BaseRpcHandler";
+import { BaseRpcHandler, ConstructorParameter } from "./BaseRpcHandler";
 import { RpcRequest } from "./transports/Transport";
 import * as utils from "../../utils";
-export declare type RpcTuple = [method: string, ...params: any];
+export { ConstructorParameter };
+export type RpcTuple = [method: string, ...params: any];
 export declare const isRpcTuple: (arg: any) => arg is [method: string, ...params: any[]];
 declare global {
     interface Function {
@@ -9,7 +10,7 @@ declare global {
     }
 }
 export declare abstract class BaseDevice extends BaseRpcHandler {
-    requestRpc(rpcRequest: RpcRequest | RpcRequest[]): Promise<any[]>;
+    requestRpc(rpcRequest: RpcRequest | RpcRequest[]): Promise<string[]>;
     sendRpc(rpcRequest: RpcRequest | RpcRequest[]): Promise<void>;
     exec(rpcTuple: RpcTuple): Promise<string | undefined>;
     exec(...rpcTuple: RpcTuple): Promise<string | undefined>;

@@ -1,9 +1,11 @@
-import { BaseRpcHandler } from "./BaseRpcHandler"
+import { BaseRpcHandler, ConstructorParameter } from "./BaseRpcHandler"
 import { RpcRequest } from "./transports/Transport"
 import * as utils from "../../utils"
 
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseDevice]", ...v)) // DEBUG:
+
+export { ConstructorParameter }
 
 export type RpcTuple = [method: string, ...params: any]
 export const isRpcTuple = (arg: any): arg is RpcTuple => typeof arg !== "string" && typeof arg[0] === "string"
@@ -22,7 +24,7 @@ Function.prototype.rpc = function(...params: any) {
 
 export abstract class BaseDevice extends BaseRpcHandler {
 	
-	public async requestRpc(rpcRequest: RpcRequest |RpcRequest[]): Promise<any[]> {
+	public async requestRpc(rpcRequest: RpcRequest |RpcRequest[]): Promise<string[]> {
 		// dbg("[requestRpc]")
 		const rpcRequestString = JSON.stringify(Array.isArray(rpcRequest) ? rpcRequest : [rpcRequest])
 		return JSON.parse(await this.request(rpcRequestString))
