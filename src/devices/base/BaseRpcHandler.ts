@@ -5,6 +5,8 @@ import { RpcHandlerExtension } from "./RpcHandlerExtension"
 import { dayjs, chalk, log, sleep, getDateStr, generateRandomColorcode, generateRandomColorcodeClosure } from "../../utils" // DEBUG:
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseRpcHandler]", ...v)) // DEBUG:
 
+export { ConstructorParameter }
+
 export abstract class BaseRpcHandler extends BaseTransport {
 	public rpcHandler: RpcHandlerExtension = new RpcHandlerExtension()
 	
@@ -26,9 +28,12 @@ export abstract class BaseRpcHandler extends BaseTransport {
 		
 		this._transport.onrpcRequest = this._onrpcRequest
 		this._transport.onrpcHandler = this._onrpcHandler
-		
-		this.init()
 	}
 	
-	protected init() {}
+	protected _overrideOnmethods(obj: object) {
+		Object.keys(obj)
+			.filter(prop => prop.match(/^on.*/) && typeof obj[prop] === "function")
+			.forEach(onmethod => obj[onmethod] = (...params) => this[onmethod](...params))
+			// .forEach(onmethod => log(onmethod)) // DEBUG:
+	}
 }

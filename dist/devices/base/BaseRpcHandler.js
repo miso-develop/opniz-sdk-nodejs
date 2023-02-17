@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseRpcHandler = void 0;
 const BaseTransport_1 = require("./BaseTransport");
 const RpcHandlerExtension_1 = require("./RpcHandlerExtension");
-// const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[BaseRpcHandler]", ...v)) // DEBUG:
 class BaseRpcHandler extends BaseTransport_1.BaseTransport {
     // @ts-ignore TODO:
     constructor({ address, port, id, serverPort, protocol }) {
@@ -29,8 +28,12 @@ class BaseRpcHandler extends BaseTransport_1.BaseTransport {
         this.on("notmatch", this._onnotmatch);
         this._transport.onrpcRequest = this._onrpcRequest;
         this._transport.onrpcHandler = this._onrpcHandler;
-        this.init();
     }
-    init() { }
+    _overrideOnmethods(obj) {
+        Object.keys(obj)
+            .filter(prop => prop.match(/^on.*/) && typeof obj[prop] === "function")
+            .forEach(onmethod => obj[onmethod] = (...params) => this[onmethod](...params));
+        // .forEach(onmethod => log(onmethod)) // DEBUG:
+    }
 }
 exports.BaseRpcHandler = BaseRpcHandler;
