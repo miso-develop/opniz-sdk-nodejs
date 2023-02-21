@@ -13,4 +13,5 @@ export declare class Esp32 extends BaseDevice {
     pinMode(pin: number, mode: number): Promise<boolean | undefined>;
     ledcSetup(chan: number, freq: number, bitNum: number): Promise<number | undefined>;
     ledcAttachPin(pin: number, chan: number): Promise<boolean | undefined>;
+    ledcDetachPin(pin: number): Promise<boolean | undefined>;
 }

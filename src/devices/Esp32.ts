@@ -70,4 +70,9 @@ export class Esp32 extends BaseDevice {
 		const result = await this.exec("_ledcAttachPin(uint8_t,uint8_t):void", pin, chan)
 		return result === undefined ? undefined : Boolean(result)
 	}
+	
+	public async ledcDetachPin(pin: number): Promise<boolean | undefined> {
+		const result = await this.exec("_ledcDetachPin(uint8_t):void", pin)
+		return result === undefined ? undefined : Boolean(result)
+	}
 }

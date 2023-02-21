@@ -90,5 +90,11 @@ class Esp32 extends BaseDevice_1.BaseDevice {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    ledcDetachPin(pin) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.exec("_ledcDetachPin(uint8_t):void", pin);
+            return result === undefined ? undefined : Boolean(result);
+        });
+    }
 }
 exports.Esp32 = Esp32;
