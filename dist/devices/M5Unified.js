@@ -16,6 +16,7 @@ const LED_1 = require("./m5unified/LED");
 const Button_1 = require("./m5unified/Button");
 const IMU_1 = require("./m5unified/IMU");
 const Display_1 = require("./m5unified/Display");
+const Speaker_1 = require("./m5unified/Speaker");
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Unified]", ...v)) // DEBUG:
 // MEMO: M5Unified@0.1.3
 class M5Unified extends Esp32_1.Esp32 {
@@ -27,6 +28,7 @@ class M5Unified extends Esp32_1.Esp32 {
         this.Imu = new IMU_1.IMU(this);
         this.Display = new Display_1.Display(this);
         this.Lcd = this.Display;
+        this.Speaker = new Speaker_1.Speaker(this);
         this.BoardType = BoardType;
         this.BoardTypeList = BoardTypeList;
         // Add rpc handler
@@ -38,6 +40,7 @@ class M5Unified extends Esp32_1.Esp32 {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     config(cfg) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.exec("_M5.config(const config_t&):config_t|void", cfg);

@@ -6,6 +6,7 @@ import { LED } from "./m5unified/LED"
 import { Button } from "./m5unified/Button"
 import { IMU } from "./m5unified/IMU"
 import { Display } from "./m5unified/Display"
+import { Speaker } from "./m5unified/Speaker"
 // const dbg = (...v) => console.log(chalk.gray.bgYellowBright(getDateStr(), "[M5Unified]", ...v)) // DEBUG:
 
 // MEMO: M5Unified@0.1.3
@@ -16,6 +17,7 @@ export class M5Unified extends Esp32 {
 	public Imu = new IMU(this)
 	public Display = new Display(this)
 	public Lcd = this.Display
+	public Speaker = new Speaker(this)
 	
 	public BoardType = BoardType
 	public BoardTypeList = BoardTypeList
@@ -39,6 +41,7 @@ export class M5Unified extends Esp32 {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async config(cfg?: M5Unified.Config): Promise<M5Unified.Config | boolean | undefined> {
 		const result = await this.exec("_M5.config(const config_t&):config_t|void", cfg)
 		return cfg ? true : result === undefined ? undefined : this._parseConfig(result)

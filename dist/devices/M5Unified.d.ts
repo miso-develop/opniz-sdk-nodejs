@@ -3,12 +3,14 @@ import { LED } from "./m5unified/LED";
 import { Button } from "./m5unified/Button";
 import { IMU } from "./m5unified/IMU";
 import { Display } from "./m5unified/Display";
+import { Speaker } from "./m5unified/Speaker";
 export declare class M5Unified extends Esp32 {
     Led: LED;
     Btn: Button;
     Imu: IMU;
     Display: Display;
     Lcd: Display;
+    Speaker: Speaker;
     BoardType: {
         readonly board_unknown: 0;
         readonly board_Non_Panel: 1;
