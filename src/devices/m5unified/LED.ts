@@ -13,6 +13,7 @@ export class LED {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async drawpix(Number: number, Color: LED.Color): Promise<boolean | undefined>
 	public async drawpix(xpos: number, ypos: number, Color: LED.Color): Promise<boolean | undefined>
 	public async drawpix(xposOrNumber: number, yposOrColor: LED.Color | number, ColorOrUndefined?: LED.Color): Promise<boolean | undefined> {

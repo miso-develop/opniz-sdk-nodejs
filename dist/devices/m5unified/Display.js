@@ -46,6 +46,7 @@ class Display {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     setCursor(x, y, font) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.setCursor(int32_t,int32_t,uint8_t):void", x, y, font);
@@ -70,18 +71,21 @@ class Display {
             return result === undefined ? undefined : Number(result);
         });
     }
+    // MEMO: Overload
     drawString(string, x, y, font) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.drawString(const char*,int32_t,int32_t,uint8_t):size_t", string, x, y, font);
             return result === undefined ? undefined : Number(result);
         });
     }
+    // MEMO: Overload
     drawCentreString(string, x, y, font) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.drawCentreString(const String&,int32_t,int32_t,uint8_t):size_t", string, x, y, font);
             return result === undefined ? undefined : Number(result);
         });
     }
+    // MEMO: Overload
     drawRightString(string, x, y, font) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.drawRightString(const String&,int32_t,int32_t,uint8_t):size_t", string, x, y, font);
@@ -94,24 +98,28 @@ class Display {
             return result === undefined ? undefined : Number(result);
         });
     }
+    // MEMO: Overload
     println(c) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.println(const char):size_t", c);
             return result === undefined ? undefined : Number(result);
         });
     }
+    // MEMO: Overload
     fillScreen(color) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.fillScreen(const T&):void", this._convertColor16(this._convertNumberColorcode(color)));
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     clear(color) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.clear(const T&):void", this._convertColor16(this._convertNumberColorcode(color)));
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     setTextColor(fgcolor, bgcolor) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.setTextColor(T1,T2):void", this._convertColor16(this._convertNumberColorcode(fgcolor)), this._convertColor16(this._convertNumberColorcode(bgcolor)));
@@ -130,6 +138,7 @@ class Display {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     setTextSize(sx, sy) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.setTextSize(float,float):void", sx, sy);
@@ -178,18 +187,21 @@ class Display {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     clearDisplay(color) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.clearDisplay(int32_t):void", this._convertColor16(this._convertNumberColorcode(color)));
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     fontHeight(font) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.fontHeight(int8_t):int32_t", font);
             return result === undefined ? undefined : Number(result);
         });
     }
+    // MEMO: Overload
     fontWidth(font) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.fontWidth(int8_t):int32_t", font);
@@ -292,12 +304,14 @@ class Display {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     setTextWrap(wrapX, wrapY) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.setTextWrap(bool,bool):void", wrapX, wrapY);
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     showFont(td) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.showFont(uint32_t):void", td);
@@ -322,6 +336,7 @@ class Display {
             return result === undefined ? undefined : Boolean(result);
         });
     }
+    // MEMO: Overload
     qrcode(string, x, y, width, version) {
         return __awaiter(this, void 0, void 0, function* () {
             const result = yield this.opniz.exec("_M5.Display.qrcode(const String,int32_t,int32_t,int32_t,uint8_t):void", string, x, y, width, version);

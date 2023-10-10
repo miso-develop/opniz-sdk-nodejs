@@ -35,6 +35,7 @@ export class Display {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async setCursor(x: number, y: number, font?: Display.FontType): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.setCursor(int32_t,int32_t,uint8_t):void", x, y, font)
 		return result === undefined ? undefined : Boolean(result)
@@ -55,16 +56,19 @@ export class Display {
 		return result === undefined ? undefined : Number(result)
 	}
 	
+	// MEMO: Overload
 	public async drawString(string: string, x: number, y: number, font?: Display.FontType): Promise<number | undefined> {
 		const result = await this.opniz.exec("_M5.Display.drawString(const char*,int32_t,int32_t,uint8_t):size_t", string, x, y, font)
 		return result === undefined ? undefined : Number(result)
 	}
 	
+	// MEMO: Overload
 	public async drawCentreString(string: string, x: number, y: number, font?: Display.FontType): Promise<number | undefined> {
 		const result = await this.opniz.exec("_M5.Display.drawCentreString(const String&,int32_t,int32_t,uint8_t):size_t", string, x, y, font)
 		return result === undefined ? undefined : Number(result)
 	}
 	
+	// MEMO: Overload
 	public async drawRightString(string: string, x: number, y: number, font?: Display.FontType): Promise<number | undefined> {
 		const result = await this.opniz.exec("_M5.Display.drawRightString(const String&,int32_t,int32_t,uint8_t):size_t", string, x, y, font)
 		return result === undefined ? undefined : Number(result)
@@ -75,21 +79,25 @@ export class Display {
 		return result === undefined ? undefined : Number(result)
 	}
 	
+	// MEMO: Overload
 	public async println(c?: string): Promise<number | undefined> {
 		const result = await this.opniz.exec("_M5.Display.println(const char):size_t", c)
 		return result === undefined ? undefined : Number(result)
 	}
 	
+	// MEMO: Overload
 	public async fillScreen(color?: Display.Color): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.fillScreen(const T&):void", this._convertColor16(this._convertNumberColorcode(color)))
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async clear(color?: Display.Color): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.clear(const T&):void", this._convertColor16(this._convertNumberColorcode(color)))
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async setTextColor(fgcolor: Display.Color, bgcolor?: Display.Color): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.setTextColor(T1,T2):void", this._convertColor16(this._convertNumberColorcode(fgcolor)), this._convertColor16(this._convertNumberColorcode(bgcolor)))
 		return result === undefined ? undefined : Boolean(result)
@@ -105,6 +113,7 @@ export class Display {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async setTextSize(sx: number, sy?: number): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.setTextSize(float,float):void", sx, sy)
 		return result === undefined ? undefined : Boolean(result)
@@ -145,16 +154,19 @@ export class Display {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async clearDisplay(color?: Display.Color): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.clearDisplay(int32_t):void", this._convertColor16(this._convertNumberColorcode(color)))
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async fontHeight(font?: number): Promise<number | undefined> {
 		const result = await this.opniz.exec("_M5.Display.fontHeight(int8_t):int32_t", font)
 		return result === undefined ? undefined : Number(result)
 	}
 	
+	// MEMO: Overload
 	public async fontWidth(font?: number): Promise<number | undefined> {
 		const result = await this.opniz.exec("_M5.Display.fontWidth(int8_t):int32_t", font)
 		return result === undefined ? undefined : Number(result)
@@ -240,11 +252,13 @@ export class Display {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async setTextWrap(wrapX: boolean, wrapY?: boolean): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.setTextWrap(bool,bool):void", wrapX, wrapY)
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async showFont(td?: number): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.showFont(uint32_t):void", td)
 		return result === undefined ? undefined : Boolean(result)
@@ -265,6 +279,7 @@ export class Display {
 		return result === undefined ? undefined : Boolean(result)
 	}
 	
+	// MEMO: Overload
 	public async qrcode(string: string, x?: number, y?: number, width?: number, version?: number): Promise<boolean | undefined> {
 		const result = await this.opniz.exec("_M5.Display.qrcode(const String,int32_t,int32_t,int32_t,uint8_t):void", string, x, y, width, version)
 		return result === undefined ? undefined : Boolean(result)
