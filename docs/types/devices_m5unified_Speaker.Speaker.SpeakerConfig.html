@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>wait | opniz</title><meta name="description" content="Documentation for opniz"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>SpeakerConfig | opniz</title><meta name="description" content="Documentation for opniz"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -13,21 +13,44 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../index.html">opniz</a></li>
-<li><a href="../modules/utils.html">utils</a></li>
-<li><a href="utils.wait.html">wait</a></li></ul>
-<h1>Function wait</h1></div>
-<section class="tsd-panel">
-<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-<li class="tsd-signature tsd-anchor-link" id="wait">wait<span class="tsd-signature-symbol">(</span>ms<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#wait" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5>ms: <span class="tsd-signature-type">number</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<li><a href="../modules/devices_m5unified_Speaker.html">devices/m5unified/Speaker</a></li>
+<li><a href="../modules/devices_m5unified_Speaker.Speaker.html">Speaker</a></li>
+<li><a href="devices_m5unified_Speaker.Speaker.SpeakerConfig.html">SpeakerConfig</a></li></ul>
+<h1>Type alias SpeakerConfig</h1></div>
+<div class="tsd-signature">Speaker<wbr/>Config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span><br/><span>    </span>buzzer<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>dac_zero_level<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>dma_buf_count<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>dma_buf_len<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>i2s_port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>magnification<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>pin_bck<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>pin_data_out<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>pin_ws<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>sample_rate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>stereo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>task_pinned_core<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>task_priority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span>use_dac<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></div>
+<div class="tsd-type-declaration">
+<h4>Type declaration</h4>
+<ul class="tsd-parameters">
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> buzzer<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> dac_<wbr/>zero_<wbr/>level<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> dma_<wbr/>buf_<wbr/>count<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> dma_<wbr/>buf_<wbr/>len<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> i2s_<wbr/>port<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> magnification<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> pin_<wbr/>bck<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> pin_<wbr/>data_<wbr/>out<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> pin_<wbr/>ws<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> sample_<wbr/>rate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> stereo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> task_<wbr/>pinned_<wbr/>core<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> task_<wbr/>priority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5></li>
+<li class="tsd-parameter">
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> use_<wbr/>dac<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span></h5></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/utils.ts#L11">src/utils.ts:11</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/miso-develop/opniz-sdk-nodejs/blob/main/src/devices/m5unified/Speaker.ts#L86">src/devices/m5unified/Speaker.ts:86</a></li></ul></aside></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -83,27 +106,19 @@
 <li class="tsd-kind-module"><a href="../modules/devices_m5unified_LED.html">devices/m5unified/LED</a>
 <ul>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="../modules/devices_m5unified_LED.LED.html">LED</a></li></ul></li>
-<li class="tsd-kind-module"><a href="../modules/devices_m5unified_Speaker.html">devices/m5unified/<wbr/>Speaker</a>
+<li class="current tsd-kind-module"><a href="../modules/devices_m5unified_Speaker.html">devices/m5unified/<wbr/>Speaker</a>
 <ul>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="../modules/devices_m5unified_Speaker.Speaker.html">Speaker</a></li></ul></li>
+<li class="current tsd-kind-namespace tsd-parent-kind-module"><a href="../modules/devices_m5unified_Speaker.Speaker.html">Speaker</a></li></ul></li>
 <li class="tsd-kind-module"><a href="../modules/index.html">index</a>
 <ul>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="../modules/index.Opniz.html">Opniz</a></li></ul></li>
-<li class="current tsd-kind-module"><a href="../modules/utils.html">utils</a>
+<li class="tsd-kind-module"><a href="../modules/utils.html">utils</a>
 <ul>
 <li class="tsd-kind-namespace tsd-parent-kind-module tsd-is-external"><a href="../modules/utils.chalk.html">chalk</a></li>
 <li class="tsd-kind-namespace tsd-parent-kind-module tsd-is-external"><a href="../modules/utils.dayjs.html">dayjs</a></li></ul></li></ul></li></ul></div></details></nav>
 <nav class="tsd-navigation secondary menu-sticky">
 <ul>
-<li class="tsd-kind-function tsd-parent-kind-module tsd-is-external"><a href="utils.chalk-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>chalk</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module tsd-is-external"><a href="utils.dayjs-1.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>dayjs</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.generateRandomColorcode.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>generate<wbr/>Random<wbr/>Colorcode</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.generateRandomColorcodeClosure.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>generate<wbr/>Random<wbr/>Colorcode<wbr/>Closure</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.getDateStr.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>get<wbr/>Date<wbr/>Str</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.log.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>log</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.sleep.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>sleep</a></li>
-<li class="current tsd-kind-function tsd-parent-kind-module"><a href="utils.wait.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>wait</a></li>
-<li class="tsd-kind-function tsd-parent-kind-module"><a href="utils.zeroPadding.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>zero<wbr/>Padding</a></li></ul></nav></div></div>
+<li class="current tsd-kind-type-alias tsd-parent-kind-namespace"><a href="devices_m5unified_Speaker.Speaker.SpeakerConfig.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-4194304-path"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)" id="icon-4194304-text"></path></svg>Speaker<wbr/>Config</a></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="../assets/main.js"></script></body></html>
